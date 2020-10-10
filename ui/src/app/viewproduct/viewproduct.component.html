@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Product view</h2>
+  <p>Use action to perform crud operations</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.desc}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button" class="btn-primary" (click)="gotolist()">BACK</button>
+</div>

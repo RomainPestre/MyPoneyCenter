@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Product list</h2>
+  <p>Use action to perform crud operations</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of _productlist">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.desc}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="goToEditProduct(product.id)">Edit</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-info" (click)="goToViewProduct(product.id)">View</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>&nbsp;&nbsp;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-success" (click)="goToAddProduct()">Add new product</button>&nbsp;&nbsp;
+</div>
