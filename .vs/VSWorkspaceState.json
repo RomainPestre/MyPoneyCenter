@@ -1,19 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\back tuto",
-    "\\back tuto\\src",
-    "\\back tuto\\src\\main",
-    "\\back tuto\\src\\main\\java",
-    "\\back tuto\\src\\main\\java\\com",
-    "\\back tuto\\src\\main\\java\\com\\example",
-    "\\back tuto\\src\\main\\java\\com\\example\\myponeycenter",
-    "\\back tuto\\src\\main\\java\\com\\example\\myponeycenter\\services",
-    "\\back tuto\\src\\main\\resources",
     "\\ui",
     "\\ui\\src",
-    "\\ui\\src\\app"
+    "\\ui\\src\\app",
+    "\\ui\\src\\app\\viewproduct"
   ],
-  "SelectedNode": "\\ui\\src\\app\\ngservice.service.ts",
+  "SelectedNode": "\\ui\\src\\app\\app.component.html",
   "PreviewInSolutionExplorer": false
 }

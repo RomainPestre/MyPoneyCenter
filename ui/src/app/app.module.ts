@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     EditproductComponent,
     ViewproductComponent,
     ProductComponent,
-    AddproductComponent
+    AddproductComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

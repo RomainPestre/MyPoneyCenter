@@ -2,7 +2,6 @@
   <h2>add new user</h2>
 
   <form #adduserform="ngForm" (ngSubmit)="addProductformsubmit()">
-    {{user | json}}
     <div class="form-group">
       <label for="id">id:</label>
       <input type="text" class="form-control" required [(ngModel)]="product.id" name="id" />
