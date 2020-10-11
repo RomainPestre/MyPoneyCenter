@@ -60,4 +60,10 @@ public class CrudRestController {
 		users = service.fetchuserList();
 		return users;
 	}
+	
+	@PostMapping("/adduser")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User saveUser(@RequestBody User user){
+		return service.saveUserToDB(user);
+	}
 }

@@ -23,8 +23,8 @@ export class UserlistComponent implements OnInit {
     )
   }
 
-  goToAddProduct() {
-    this._route.navigate(['/addproduct']);
+  goToAddUser() {
+    this._route.navigate(['/adduser']);
   }
 
   goToEditProduct(id: number) {

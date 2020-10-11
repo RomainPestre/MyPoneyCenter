@@ -48,4 +48,8 @@ public class CrudService {
 	public List<User> fetchuserList(){
 		return userRepo.findAll();
 	}
+	
+	public User saveUserToDB(User user) {
+		return userRepo.save(user);
+	}
 }
