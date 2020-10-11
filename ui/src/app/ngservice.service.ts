@@ -26,4 +26,8 @@ export class NgserviceService {
   deleteProductByIdFromRemote(id: number): Observable<any> {
     return this._http.delete<any>("http://localhost:8080/deleteproductbyid/" + id);
   }
+
+  fetchUserListFromRemote(): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getuserlist");
+  }
 }

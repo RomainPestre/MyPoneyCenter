@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.back.model.Product;
+import com.example.back.model.User;
 import com.example.back.repository.CrudRepo;
+import com.example.back.repository.UserRepo;
 
 @Service
 public class CrudService {
@@ -38,5 +40,12 @@ public class CrudService {
 			result = "ERROR : id is null.";
 		}
 		return result;
+	}
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	public List<User> fetchuserList(){
+		return userRepo.findAll();
 	}
 }
