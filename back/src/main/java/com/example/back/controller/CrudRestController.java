@@ -78,4 +78,10 @@ public class CrudRestController {
 	public User fetchUserByEmail(@PathVariable String email){
 		return service.fetchUserByEmail(email).get();
 	}
+	
+	@GetMapping("/getuserbyemailandpassword/{email}/{password}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserByEmailAndPassword(@PathVariable String email, @PathVariable String password){
+		return service.fetchUserByEmailAndPassword(email, password).get();
+	}
 }

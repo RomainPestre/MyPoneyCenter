@@ -18,6 +18,20 @@ export class LoginComponent implements OnInit {
 
   loginformsubmit() {
     ///TODO: SHA256 password
+    this._service.fetchUserByEmailAndPasswordFromRemote(this.user.email, this.user.password).subscribe(
+      //Si "email" AND "password" sont corrects
+      data => {
+        console.log("Identifiants corrects");
+        this.user = data;
+        this.goToHome();
+      },
+      //Si "email" OR "password" est incorrects
+      error => console.log("error")
+    )
+  }
+
+  /*loginformsubmit() {
+    ///TODO: SHA256 password
     this._service.fetchUserByEmailFromRemote(this.user.email).subscribe(
       //Si l'utilisateur existe
       data => {
@@ -37,7 +51,7 @@ export class LoginComponent implements OnInit {
       //Si l'utilisateur n'existe pas
       error => console.log("error")
     )
-  }
+  }*/
 
   goToHome() {
     this._route.navigate(['']);

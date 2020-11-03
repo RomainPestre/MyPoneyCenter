@@ -40,4 +40,7 @@ export class NgserviceService {
     return this._http.get<any>("http://localhost:8080/getuserbyemail/" + email);
   }
 
+  fetchUserByEmailAndPasswordFromRemote(email: string, password: string): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getuserbyemailandpassword/" + email + "/" + password);
+  }
 }

@@ -60,4 +60,8 @@ public class CrudService {
 	public Optional<User> fetchUserByEmail(String email) {
 		return userRepo.findByEmail(email);
 	}
+	
+	public Optional<User> fetchUserByEmailAndPassword(String email, String password) {
+		return userRepo.findByEmailAndPassword(email, password);
+	}
 }
