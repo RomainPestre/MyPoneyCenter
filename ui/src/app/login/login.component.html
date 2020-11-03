@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Login</h2>
+
+  <form #adduserform="ngForm" (ngSubmit)="loginformsubmit()">
+    <div class="form-group">
+      <label for="id">Email:</label>
+      <input type="text" class="form-control" required [(ngModel)]="user.email" name="email" />
+    </div>
+    <div class="form-group">
+      <label for="id">Password:</label>
+      <input type="text" class="form-control" required [(ngModel)]="user.password" name="password" />
+    </div>
+
+    <button type="submit" class="btn-success">Submit</button>
+    <button type="button" class="btn-primary" (click)="goToHome()">BACK</button>
+  </form>
+</div>

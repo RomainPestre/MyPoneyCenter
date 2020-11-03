@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   email: string;
   password: string;
   name: string;
-  fisrtname: string;
+  firstname: string;
   phone: string;
   license: number;
   privileges: number;

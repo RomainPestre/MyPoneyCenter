@@ -17,4 +17,12 @@ export class NavbarComponent implements OnInit {
   goToAddUser() {
     this._route.navigate(['/adduser']);
   }
+
+  goToHome() {
+    this._route.navigate(['']);
+  }
+
+  goToConnect() {
+    this._route.navigate(['/login']);
+  }
 }

@@ -4,8 +4,13 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\app",
+    "\\ui\\src\\app\\appproduct",
+    "\\ui\\src\\app\\editproduct",
+    "\\ui\\src\\app\\login",
+    "\\ui\\src\\app\\services",
+    "\\ui\\src\\app\\userlist",
     "\\ui\\src\\app\\viewproduct"
   ],
-  "SelectedNode": "\\ui\\src\\app\\app.component.html",
+  "SelectedNode": "\\ui\\src\\app\\login\\login.component.ts",
   "PreviewInSolutionExplorer": false
 }

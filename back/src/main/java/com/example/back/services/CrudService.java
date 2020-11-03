@@ -13,7 +13,7 @@ import com.example.back.repository.UserRepo;
 
 @Service
 public class CrudService {
-	
+
 	@Autowired
 	private CrudRepo repo;
 
@@ -51,5 +51,13 @@ public class CrudService {
 	
 	public User saveUserToDB(User user) {
 		return userRepo.save(user);
+	}
+	
+	public Optional<User> fetchUserById(int id) {
+		return userRepo.findById(id);
+	}
+	
+	public Optional<User> fetchUserByEmail(String email) {
+		return userRepo.findByEmail(email);
 	}
 }

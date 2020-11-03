@@ -66,4 +66,16 @@ public class CrudRestController {
 	public User saveUser(@RequestBody User user){
 		return service.saveUserToDB(user);
 	}
+	
+	@GetMapping("/getuserbyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserById(@PathVariable int id){
+		return service.fetchUserById(id).get();
+	}
+	
+	@GetMapping("/getuserbyemail/{email}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserByEmail(@PathVariable String email){
+		return service.fetchUserByEmail(email).get();
+	}
 }
