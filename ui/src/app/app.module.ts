@@ -17,6 +17,8 @@ import { UserlistComponent } from './userlist/userlist.component';
 import { SignupComponent } from './signup/signup.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { LoginComponent } from './login/login.component';
     SignupComponent,
     AdduserComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Login</h2>
 
-  <form #adduserform="ngForm" (ngSubmit)="loginformsubmit()">
+  <form *ngIf="!isUserLoggedIn" #adduserform="ngForm" (ngSubmit)="loginformsubmit()">
     <div class="form-group">
       <label for="id">Email:</label>
       <input type="text" class="form-control" required [(ngModel)]="user.email" name="email" />
@@ -11,7 +11,12 @@
       <input type="text" class="form-control" required [(ngModel)]="user.password" name="password" />
     </div>
 
-    <button type="submit" class="btn-success">Submit</button>
-    <button type="button" class="btn-primary" (click)="goToHome()">BACK</button>
+    <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="goToHome()">BACK</button>&nbsp;&nbsp;
   </form>
+
+  <div *ngIf="isUserLoggedIn">
+    <button type="button" class="btn btn-success" (click)="disconnect()">Déconnexion</button>&nbsp;&nbsp;
+  </div>
+
 </div>

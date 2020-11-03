@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgserviceService } from '../ngservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserComponent } from '../user/user.component';
+import { AuthService } from '../services/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,13 @@ import { UserComponent } from '../user/user.component';
 })
 export class LoginComponent implements OnInit {
   user = new UserComponent;
+  isUserLoggedIn: boolean;
 
-  constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute) { }
+  constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
+    this.authService.isUserLoggedIn.subscribe(value => {
+      this.isUserLoggedIn = value;
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -23,6 +30,9 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Identifiants corrects");
         this.user = data;
+        //On signale à l'application qu'on est connecté, ce qui refresh la navbar
+        this.authService.isUserLoggedIn.next(true);
+        //On retourne à l'accueil
         this.goToHome();
       },
       //Si "email" OR "password" est incorrects
@@ -30,30 +40,14 @@ export class LoginComponent implements OnInit {
     )
   }
 
-  /*loginformsubmit() {
-    ///TODO: SHA256 password
-    this._service.fetchUserByEmailFromRemote(this.user.email).subscribe(
-      //Si l'utilisateur existe
-      data => {
-        console.log("Récupération de l'utilisateur via son email réussie.");
-        //console.log(this.user.firstname + " " + this.user.name);
-        //Si le mot de passe est correct
-        if (this.user.password == data.password) {
-          console.log("Identifiants corrects");
-          this.user = data;
-          this.goToHome();
-        }
-        //Si le mot de passe est incorrect
-        else {
-          console.log("Identifiants incorrects");
-        }
-      },
-      //Si l'utilisateur n'existe pas
-      error => console.log("error")
-    )
-  }*/
+  disconnect() {
+    this.authService.isUserLoggedIn.next(false);
+    console.log("Déconnecté");
+    this.goToHome();
+  }
 
   goToHome() {
-    this._route.navigate(['']);
+    this._route.navigate(['home']);
+    console.log("Retour à la page d'accueil");
   }
 }
