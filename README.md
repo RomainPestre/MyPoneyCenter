@@ -14,6 +14,38 @@
 - bootstrap
 - jquery
 
+## Types d'utilisateurs
+### Cavalier
+Modifier sa fiche de renseignement pour mettre à jours ses informations de contact
+S'inscrire à des cours et connaitre le cheval qu'il va monter
+
+### Super user
+Identification : super mot de passe
+Rôle : gérer les compte administrateur
+Accès après connexion : page de gestion des comptes administrateurs
+
+### Administrateur
+Identification : classique
+Rôle : accéder aux fonctions d’administration
+Accès après connexion : page d'administration
+
+Modifier sa fiche de renseignement pour mettre à jours ses informations de contact
+
+Fonctions d'administration : 
+- création de comptes administrateur 
+- création de comptes moniteur
+- création de fiches cheval
+
+Page d'administration : liste des cavaliers et administrateurs ainsi que leur fiche de renseignement (fonctions de recherche)
+
+
+### Moniteur
+Modifier sa fiche de renseignement pour mettre à jours ses informations de contact
+Associer un cheval à un cavalier
+Créer et modifier le planning des séance de cours qu'il dispense pour permettre aux cavaliers de s'inscrire
+Accès aux personnes inscrites pour les cours, assignation de chevaux, annulation, ajout de cheval
+
+
 ## Scripts SQL
 ### Création de la table "user"
 ```
