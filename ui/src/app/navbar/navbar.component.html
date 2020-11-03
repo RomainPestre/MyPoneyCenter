@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand">My Poney Center</a>
+    <a class="navbar-brand" routerLink="home">My Poney Center</a>
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
+      <!--<ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="">Accueil</a>
+          <a class="nav-link" routerLink="">Home page</a>
         </li>
-      </ul>
+      </ul>-->
       <ul class="navbar-nav ml-auto">
         <li *ngIf="!isUserLoggedIn" class="nav-item">
-          <a class="nav-link" routerLink="login">Connexion</a>
+          <a class="nav-link" routerLink="login">Sign In</a>
         </li>
         <li *ngIf="!isUserLoggedIn" class="nav-item">
-          <a class="nav-link" routerLink="adduser">Inscription</a>
+          <a class="nav-link" routerLink="adduser">Sign Up</a>
         </li>
         <li *ngIf="isUserLoggedIn" class="nav-item">
-          <a class="nav-link" routerLink="login">Déconnexion</a>
+          <a class="nav-link" routerLink="login">Sign Out</a>
         </li>
       </ul>
     </div>
