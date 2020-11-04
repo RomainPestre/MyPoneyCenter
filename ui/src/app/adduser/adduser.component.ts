@@ -20,7 +20,7 @@ export class AdduserComponent implements OnInit {
   }
 
   addUserformsubmit() {
-    this.user.password = sha256(this.user.password);
+    this.user.password = sha256(this.user.password.concat(this.user.email, "MyPoneyCenter"));
     this._service.addUserToRemote(this.user).subscribe(
       data => {
         console.log("data added succesfully");

@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginformsubmit() {
-    //Conversion du mot de passe en SHA-256
-    this.user.password = sha256(this.user.password);
+    //Conversion du mot de passe en SHA-256 + sallage
+    this.user.password = sha256(this.user.password.concat(this.user.email, "MyPoneyCenter"));
     this._service.fetchUserByEmailAndPasswordFromRemote(this.user.email, this.user.password).subscribe(
       //Si "email" AND "password" sont corrects
       data => {
