@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.back.model.Product;
+import com.example.back.model.User;
 import com.example.back.services.CrudService;
 
 @RestController
@@ -47,5 +48,40 @@ public class CrudRestController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public String DeleteProductById(@PathVariable int id){
 		return service.deleteProductById(id);
+	}
+	
+
+	@GetMapping("/getuserlist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<User> fetchUserList(){
+		List<User> users = new ArrayList<User>();
+		
+		//Logic to fetch list from database
+		users = service.fetchuserList();
+		return users;
+	}
+	
+	@PostMapping("/adduser")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User saveUser(@RequestBody User user){
+		return service.saveUserToDB(user);
+	}
+	
+	@GetMapping("/getuserbyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserById(@PathVariable int id){
+		return service.fetchUserById(id).get();
+	}
+	
+	@GetMapping("/getuserbyemail/{email}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserByEmail(@PathVariable String email){
+		return service.fetchUserByEmail(email).get();
+	}
+	
+	@GetMapping("/getuserbyemailandpassword/{email}/{password}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User fetchUserByEmailAndPassword(@PathVariable String email, @PathVariable String password){
+		return service.fetchUserByEmailAndPassword(email, password).get();
 	}
 }
