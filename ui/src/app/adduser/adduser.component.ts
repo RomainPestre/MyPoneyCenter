@@ -24,7 +24,7 @@ export class AdduserComponent implements OnInit {
     this._service.addUserToRemote(this.user).subscribe(
       data => {
         console.log("data added succesfully");
-        console.log(this.user.password);
+        //console.log(this.user.password);
         this._route.navigate(['userlist']);
       },
       error => console.log("error")

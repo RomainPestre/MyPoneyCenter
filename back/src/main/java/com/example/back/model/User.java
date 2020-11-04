@@ -14,12 +14,13 @@ public class User {
 	private String phone;
 	private String license;
 	private int privileges;
+	private String session;
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges) {
+	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -29,6 +30,7 @@ public class User {
 		this.phone = phone;
 		this.license = license;
 		this.privileges = privileges;
+		this.session = session;
 	}
 	
 	public int getId() {
@@ -78,6 +80,14 @@ public class User {
 	}
 	public void setPrivileges(int privileges) {
 		this.privileges = privileges;
+	}
+	
+	public String getSession() {
+		return session;
+	}
+
+	public void setSession(String session) {
+		this.session = session;
 	}
 	
 	

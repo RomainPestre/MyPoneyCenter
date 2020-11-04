@@ -73,8 +73,9 @@ create table session (
 ```
 
 ### Ajout d'un utilisateur
+Super utilisateur (admin|AdminMyPoneyCenter)
+- Email : superuser@myponeycenter.com
+- Mot de passe : SuperUser$MyPoneyCenter
 ```
-INSERT INTO user VALUES (0, 'pestre@et.esiea.fr', 'Romain', 'License', 'Pestre', '967520ae23e8ee14888bae72809031b98398ae4a636773e18fff917d77679334', '0606060606', 0)
-
-967520ae23e8ee14888bae72809031b98398ae4a636773e18fff917d77679334 = motdepasse
+INSERT INTO user VALUES (0, 'superuser@myponeycenter.com', 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, '')
 ```
