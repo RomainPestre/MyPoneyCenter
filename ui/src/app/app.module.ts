@@ -11,6 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserComponent } from './user/user.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { SignupComponent } from './signup/signup.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,14 @@ import { FormsModule } from '@angular/forms';
     EditproductComponent,
     ViewproductComponent,
     ProductComponent,
-    AddproductComponent
+    AddproductComponent,
+    NavbarComponent,
+    UserComponent,
+    UserlistComponent,
+    SignupComponent,
+    AdduserComponent,
+    LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +43,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

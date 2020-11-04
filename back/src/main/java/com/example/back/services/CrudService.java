@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.back.model.Product;
+import com.example.back.model.User;
 import com.example.back.repository.CrudRepo;
+import com.example.back.repository.UserRepo;
 
 @Service
 public class CrudService {
-	
+
 	@Autowired
 	private CrudRepo repo;
 
@@ -38,5 +40,28 @@ public class CrudService {
 			result = "ERROR : id is null.";
 		}
 		return result;
+	}
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	public List<User> fetchuserList(){
+		return userRepo.findAll();
+	}
+	
+	public User saveUserToDB(User user) {
+		return userRepo.save(user);
+	}
+	
+	public Optional<User> fetchUserById(int id) {
+		return userRepo.findById(id);
+	}
+	
+	public Optional<User> fetchUserByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
+	
+	public Optional<User> fetchUserByEmailAndPassword(String email, String password) {
+		return userRepo.findByEmailAndPassword(email, password);
 	}
 }

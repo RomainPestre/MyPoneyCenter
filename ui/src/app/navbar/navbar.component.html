@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="home">My Poney Center</a>
+    <div class="collapse navbar-collapse">
+      <!--<ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">Home page</a>
+        </li>
+      </ul>-->
+      <ul class="navbar-nav ml-auto">
+        <li *ngIf="!isUserLoggedIn" class="nav-item">
+          <a class="nav-link" routerLink="login">Sign In</a>
+        </li>
+        <li *ngIf="!isUserLoggedIn" class="nav-item">
+          <a class="nav-link" routerLink="adduser">Sign Up</a>
+        </li>
+        <li *ngIf="isUserLoggedIn" class="nav-item">
+          <a class="nav-link" routerLink="login">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
