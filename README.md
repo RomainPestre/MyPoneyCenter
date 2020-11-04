@@ -13,6 +13,7 @@
 ## Liste des node_modules ajoutés
 - bootstrap
 - jquery
+- js-sha256
 
 ## Types d'utilisateurs
 ### Cavalier

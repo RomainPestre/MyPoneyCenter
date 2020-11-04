@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserComponent } from '../user/user.component';
 import { AuthService } from '../services/auth.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { sha256 } from 'js-sha256';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginformsubmit() {
-    ///TODO: SHA256 password
+    //Conversion du mot de passe en SHA-256
+    this.user.password = sha256(this.user.password);
     this._service.fetchUserByEmailAndPasswordFromRemote(this.user.email, this.user.password).subscribe(
       //Si "email" AND "password" sont corrects
       data => {
