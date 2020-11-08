@@ -36,6 +36,10 @@ export class NgserviceService {
     return this._http.post<any>("http://localhost:8080/adduser", user);
   }
 
+  fetchUserByIdFromRemote(id: number): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getuserbyid/" + id);
+  }
+
   fetchUserByEmailFromRemote(email: string): Observable<any> {
     return this._http.get<any>("http://localhost:8080/getuserbyemail/" + email);
   }

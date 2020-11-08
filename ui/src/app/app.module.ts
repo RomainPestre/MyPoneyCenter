@@ -19,6 +19,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
+import { EdituserComponent } from './edituser/edituser.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthService } from './services/auth.service';
     AdduserComponent,
     LoginComponent,
     HomeComponent,
+    EdituserComponent,
   ],
   imports: [
     BrowserModule,

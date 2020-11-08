@@ -15,12 +15,13 @@ public class User {
 	private String license;
 	private int privileges;
 	private String session;
+	private String expiration;
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session) {
+	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session, String expiration) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -31,6 +32,7 @@ public class User {
 		this.license = license;
 		this.privileges = privileges;
 		this.session = session;
+		this.expiration = expiration;
 	}
 	
 	public int getId() {
@@ -90,5 +92,12 @@ public class User {
 		this.session = session;
 	}
 	
-	
+	public String getExpiration() {
+		return expiration;
+	}
+
+	public void setExpiration(String expiration) {
+		this.expiration = expiration;
+	}
+
 }

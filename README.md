@@ -7,8 +7,8 @@
 1. Ouvrir le projet `"MyPoneyCenter/back"` dans Eclipse.
 2. Faire clic droit sur `"MyPoneyCenter/back/src/main/java/com.example.back/BackApplication"` puis `Run As` `Java Application`.
 3. Dans un terminal, aller dans le dossier `"MyPoneyCenter/ui"` et taper la commande `ng serve`.
-4. L'application web est disponible à l'adresse [http://localhost:4200/].
-5. La base de données H2 est accessible à l'adresse [http://localhost:8080/h2-console]. (User Name : sa | Password : )
+4. L'application web est disponible à l'adresse [http://localhost:4200/](http://localhost:4200/).
+5. La base de données H2 est accessible à l'adresse [http://localhost:8080/h2-console](http://localhost:8080/h2-console). (User Name : sa | Password : )
 
 ## Liste des node_modules ajoutés
 - bootstrap
@@ -58,7 +58,9 @@ create table user (
 	firstname varchar(255),
 	phone varchar(255),
 	license varchar(255),
-	privileges int
+	privileges int,
+	session varchar(255),
+	expiration varchar(255)
 );
 ```
 
@@ -77,5 +79,5 @@ Super utilisateur (admin|AdminMyPoneyCenter)
 - Email : superuser@myponeycenter.com
 - Mot de passe : SuperUser$MyPoneyCenter
 ```
-INSERT INTO user VALUES (0, 'superuser@myponeycenter.com', 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, '')
+INSERT INTO user VALUES (0, 'superuser@myponeycenter.com', '', 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, '')
 ```
