@@ -11,6 +11,8 @@
 5. La base de données H2 est accessible à l'adresse [http://localhost:8080/h2-console](http://localhost:8080/h2-console). (User Name : sa | Password : )
 
 ## Liste des node_modules ajoutés
+- @angular/material
+- angular-material-datepicker
 - bootstrap
 - fullcalendar
 - jquery

@@ -1,43 +1,66 @@
 <div class="container">
 
-  <h2>Courses list</h2>
+  <div>
+    <h2>Add new course</h2>
 
-  <br /><br />
+    <form #adduserform="ngForm" (ngSubmit)="addCourseformsubmit()">
+      <div class="form-group">
+        <label for="id">Id:</label>
+        <input type="text" class="form-control" required [(ngModel)]="course.id" name="id" />
+      </div>
+      <div class="form-group">
+        <label for="id">Date:</label>
+        <input type="date" class="form-control" required [(ngModel)]="course.date" name="date" />
+      </div>
+      <div class="form-group">
+        <label for="id">Time:</label>
+        <input type="time" class="form-control" required [(ngModel)]="course.time" name="time" />
+      </div>
+      <div class="form-group">
+        <label for="id">Size:</label>
+        <input type="number" class="form-control" required [(ngModel)]="course.size" name="size" />
+      </div>
 
-  <div *ngIf="isInstructor">
+      <button type="submit" class="btn btn-success">Add course</button>
+    </form>
 
+    <br /><br />
+    <hr />
+    <br /><br />
 
+    <h2>List of courses</h2>
 
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Size</th>
+          <th>Users</th>
+          <th>Horses</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of _courselist">
+          <td>{{course.id}}</td>
+          <td>{{course.date}}</td>
+          <td>{{course.time}}</td>
+          <td>{{course.size}}</td>
+          <td>{{course.users_id}}</td>
+          <td>{{course.horses_id}}</td>
+          <td>{{course.description}}</td>
+          <td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div *ngIf="!isInstructor">
+      You don't have access to this page.
+    </div>
 
   </div>
-
-  <div *ngIf="!isInstructor">
-    You don't have access to this page.
-  </div>
-
 </div>

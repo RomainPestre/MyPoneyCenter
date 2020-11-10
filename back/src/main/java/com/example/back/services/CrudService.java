@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.back.model.Product;
 import com.example.back.model.User;
+import com.example.back.model.Course;
 import com.example.back.repository.CrudRepo;
 import com.example.back.repository.UserRepo;
+import com.example.back.repository.CourseRepo;
 
 @Service
 public class CrudService {
@@ -67,5 +69,12 @@ public class CrudService {
 	
 	public Optional<User> fetchUserByEmailAndPassword(String email, String password) {
 		return userRepo.findByEmailAndPassword(email, password);
+	}
+	
+	@Autowired
+	private CourseRepo courseRepo;
+	
+	public List<Course> fetchcourseList(){
+		return courseRepo.findAll();
 	}
 }

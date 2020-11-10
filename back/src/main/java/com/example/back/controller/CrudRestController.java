@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.back.model.Product;
 import com.example.back.model.User;
+import com.example.back.model.Course;
 import com.example.back.services.CrudService;
 
 @RestController
@@ -93,5 +94,16 @@ public class CrudRestController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User fetchUserByEmailAndPassword(@PathVariable String email, @PathVariable String password){
 		return service.fetchUserByEmailAndPassword(email, password).get();
+	}
+	
+
+	@GetMapping("/getcourselist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<Course> fetchCourseList(){
+		List<Course> courses = new ArrayList<Course>();
+		
+		//Logic to fetch list from database
+		courses = service.fetchcourseList();
+		return courses;
 	}
 }

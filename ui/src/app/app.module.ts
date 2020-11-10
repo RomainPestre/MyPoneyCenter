@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule  } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,8 +27,8 @@ import { AuthService } from './services/auth.service';
 import { EdituserComponent } from './edituser/edituser.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminlistComponent } from './adminlist/adminlist.component';
-import { CalendarComponent } from './calendar/calendar.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +49,19 @@ import { CoursesComponent } from './courses/courses.component';
     EdituserComponent,
     AdminComponent,
     AdminlistComponent,
-    CalendarComponent,
     CoursesComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
   providers: [
     AuthService

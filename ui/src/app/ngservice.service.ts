@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
+import { CourseComponent } from './course/course.component';
 
 @Injectable({
   providedIn: 'root'
@@ -51,4 +52,13 @@ export class NgserviceService {
   fetchUserByEmailAndPasswordFromRemote(email: string, password: string): Observable<any> {
     return this._http.get<any>("http://localhost:8080/getuserbyemailandpassword/" + email + "/" + password);
   }
+
+  fetchCourseListFromRemote(): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getcourselist");
+  }
+
+  addCourseToRemote(course: CourseComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/addcourse", course);
+  }
+
 }
