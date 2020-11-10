@@ -20,6 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { EdituserComponent } from './edituser/edituser.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminlistComponent } from './adminlist/adminlist.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,15 @@ import { EdituserComponent } from './edituser/edituser.component';
     LoginComponent,
     HomeComponent,
     EdituserComponent,
+    AdminComponent,
+    AdminlistComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     AuthService

@@ -32,6 +32,10 @@ export class NgserviceService {
     return this._http.get<any>("http://localhost:8080/getuserlist");
   }
 
+  fetchAdminListFromRemote(): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getadminlist");
+  }
+
   addUserToRemote(user: UserComponent): Observable<any> {
     return this._http.post<any>("http://localhost:8080/adduser", user);
   }

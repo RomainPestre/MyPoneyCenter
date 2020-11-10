@@ -12,4 +12,5 @@ public interface UserRepo extends JpaRepository<User, Integer> {
 	
 	Optional<User> findByEmailAndPassword(String email, String password);
 
+	List<User> findByPrivilegesEquals(int privileges);
 }

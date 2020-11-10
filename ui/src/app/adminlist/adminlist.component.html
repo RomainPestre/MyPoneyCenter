@@ -1,5 +1,9 @@
 <div class="container">
-  <h2>User list</h2>
+  <h2>Admin list</h2>
+  <br />
+
+  <button type="button" class="btn btn-success" (click)="goToAddAdmin()">Add new admin</button>&nbsp;&nbsp;
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -10,12 +14,11 @@
         <th>Phone number</th>
         <th>License</th>
         <th>Privileges</th>
-        <th>Password (sha-256)</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of _userlist">
+      <tr *ngFor="let user of _adminlist">
         <td>{{user.id}}</td>
         <td>{{user.firstname}}</td>
         <td>{{user.name}}</td>
@@ -23,14 +26,12 @@
         <td>{{user.phone}}</td>
         <td>{{user.license}}</td>
         <td>{{user.privileges}}</td>
-        <td>{{user.password}}</td>
         <td>
-          <button type="button" class="btn btn-primary" (click)="goToEditProduct(user.id)">Edit</button>&nbsp;&nbsp;
-          <button type="button" class="btn btn-info" (click)="goToViewProduct(user.id)">View</button>&nbsp;&nbsp;
-          <button type="button" class="btn btn-danger" (click)="deleteProduct(user.id)">Delete</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="goToEditAdmin(user.id)">Edit</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-info" (click)="goToViewAdmin(user.id)">View</button>&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" (click)="deleteAdmin(user.id)">Delete</button>&nbsp;&nbsp;
         </td>
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-success" (click)="goToAddUser()">Add new user</button>&nbsp;&nbsp;
 </div>

@@ -1,43 +1,43 @@
 import { Component, OnInit } from '@angular/core';
+import { UserComponent } from '../user/user.component';
 import { NgserviceService } from '../ngservice.service';
 import { Router } from '@angular/router';
-import { UserComponent } from '../user/user.component';
 
 @Component({
-  selector: 'app-userlist',
-  templateUrl: './userlist.component.html',
-  styleUrls: ['./userlist.component.css']
+  selector: 'app-adminlist',
+  templateUrl: './adminlist.component.html',
+  styleUrls: ['./adminlist.component.css']
 })
-export class UserlistComponent implements OnInit {
-  _userlist: UserComponent[];
+export class AdminlistComponent implements OnInit {
+  _adminlist: UserComponent[];
 
   constructor(private _service: NgserviceService, private _route: Router) { }
 
   ngOnInit(): void {
-    this._service.fetchUserListFromRemote().subscribe(
+    this._service.fetchAdminListFromRemote().subscribe(
       data => {
-        console.log("Response recieved");
-        this._userlist = data;
+        console.log("Admin list successfully fetched");
+        this._adminlist = data;
       },
-      error=>console.log("Exception occured")
+      error => console.log("Error : exception occured")
     )
   }
 
-  goToAddUser() {
+  goToAddAdmin() {
     this._route.navigate(['/adduser']);
   }
 
-  goToEditProduct(id: number) {
+  goToEditAdmin(id: number) {
     console.log("Edit producti id : " + id);
     this._route.navigate(['/editproduct/', id]);
   }
 
-  goToViewProduct(id: number) {
+  goToViewAdmin(id: number) {
     console.log("View producti id : " + id);
     this._route.navigate(['/viewproduct', id]);
   }
 
-  deleteProduct(id: number) {
+  deleteAdmin(id: number) {
     this._service.deleteProductByIdFromRemote(id).subscribe(
       data => {
         console.debug("Deleted succesfully");

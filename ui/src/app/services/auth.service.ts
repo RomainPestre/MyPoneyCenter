@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { formatDate } from '@angular/common';
+import { sha256 } from 'js-sha256';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,15 @@ export class AuthService {
   isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSession: BehaviorSubject<string> = new BehaviorSubject<string>('');
   isId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
+  isAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isSuper: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
+  securePassword(rawPwd, saltVar1) {
+    var securePwd = "";
+    securePwd = sha256(rawPwd.concat(saltVar1, "MyPoneyCenter"));
+    return securePwd;
+  }
 
   generateSessionToken() {
     var token = "";
@@ -24,7 +34,6 @@ export class AuthService {
 
     return token;
   }
-
 
   dateNow() {
     var today = new Date();

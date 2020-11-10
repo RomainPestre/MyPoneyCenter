@@ -12,6 +12,7 @@
 
 ## Liste des node_modules ajoutés
 - bootstrap
+- fullcalendar
 - jquery
 - js-sha256
 

@@ -61,6 +61,16 @@ public class CrudRestController {
 		return users;
 	}
 	
+	@GetMapping("/getadminlist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<User> fetchAdminList(){
+		List<User> admins = new ArrayList<User>();
+		
+		//Logic to fetch list from database
+		admins = service.fetchadminList();
+		return admins;
+	}
+	
 	@PostMapping("/adduser")
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User saveUser(@RequestBody User user){

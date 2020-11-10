@@ -17,6 +17,9 @@
         <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link" routerLink="login">Sign Out</a>
         </li>
+        <li *ngIf="isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="adminpanel">Admin panel</a>
+        </li>
         <li *ngIf="isUserLoggedIn" class="nav-item">
           <a class="nav-link" routerLink="edituser">My account</a>
         </li>

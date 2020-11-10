@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   user = new UserComponent;
   isUserLoggedIn: boolean;
   isSession: string;
+  isAdmin: boolean;
+  isSuper: boolean;
 
   constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
     this.authService.isUserLoggedIn.subscribe(value => {
@@ -21,7 +23,13 @@ export class LoginComponent implements OnInit {
     });
     this.authService.isSession.subscribe(value => {
       this.isSession = value;
-    })
+    });
+    this.authService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
+    });
+    this.authService.isSuper.subscribe(value => {
+      this.isSuper = value;
+    });
   }
 
   ngOnInit(): void {
@@ -29,7 +37,7 @@ export class LoginComponent implements OnInit {
 
   loginformsubmit() {
     //Conversion du mot de passe en SHA-256 + sallage
-    this.user.password = sha256(this.user.password.concat(this.user.email, "MyPoneyCenter"));
+    this.user.password = this.authService.securePassword(this.user.password, this.user.email);
     this._service.fetchUserByEmailAndPasswordFromRemote(this.user.email, this.user.password).subscribe(
       //Si "email" AND "password" sont corrects
       data => {
@@ -57,19 +65,23 @@ export class LoginComponent implements OnInit {
         */
 
         //Enregistrer ce token en bdd
+        //Au vu des fonctionnalités du site, je ne m'attarde pas plus sur un token de session
+        /*
         this._service.addUserToRemote(this.user).subscribe(
           data => {
             console.log("Session tokken added successfully");
           },
           error => console.log("Error : Session tokken can't be added")
-        )
+        )*/
 
         //On stocke le token de session dans un sessionStorage
         //sessionStorage.setItem('sessionToken', this.user.session);
 
         //On stocke le jeton de session dans une variable
         this.authService.isSession.next(this.user.session);
+
         this.authService.isId.next(this.user.id);
+        this.detectPrivileges(this.user.privileges);
         
         //On signale à l'application qu'on est connecté, ce qui refresh la navbar
         this.authService.isUserLoggedIn.next(true);
@@ -95,18 +107,39 @@ export class LoginComponent implements OnInit {
         }
       },
       //Si "email" OR "password" est incorrects
-      error => console.log("error")
+      error => console.log("Error : wrong email or password")
     )
   }
 
   disconnect() {
     this.authService.isUserLoggedIn.next(false);
-    console.log("Déconnecté");
+    console.log("Logged out");
     this.goToHome();
   }
 
   goToHome() {
     this._route.navigate(['home']);
-    console.log("Retour à la page d'accueil");
+    console.log("Back to home page");
+  }
+
+  detectPrivileges(privileges) {
+    switch (privileges) {
+      case 0:
+        this.authService.isAdmin.next(false);
+        this.authService.isSuper.next(false);
+        break;
+      case 1:
+        this.authService.isAdmin.next(false);
+        this.authService.isSuper.next(false);
+        break;
+      case 2:
+        this.authService.isAdmin.next(true);
+        this.authService.isSuper.next(false);
+        break;
+      case 4:
+        this.authService.isAdmin.next(true);
+        this.authService.isSuper.next(true);
+        break;
+    }
   }
 }

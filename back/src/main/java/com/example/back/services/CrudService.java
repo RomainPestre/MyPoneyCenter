@@ -49,6 +49,10 @@ public class CrudService {
 		return userRepo.findAll();
 	}
 	
+	public List<User> fetchadminList(){
+		return userRepo.findByPrivilegesEquals(4);
+	}
+	
 	public User saveUserToDB(User user) {
 		return userRepo.save(user);
 	}

@@ -4,13 +4,13 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\app",
-    "\\ui\\src\\app\\editproduct",
-    "\\ui\\src\\app\\home",
-    "\\ui\\src\\app\\login",
-    "\\ui\\src\\app\\productlist",
-    "\\ui\\src\\app\\user",
-    "\\ui\\src\\app\\viewproduct"
+    "\\ui\\src\\app\\admin",
+    "\\ui\\src\\app\\adminlist",
+    "\\ui\\src\\app\\edituser",
+    "\\ui\\src\\app\\navbar",
+    "\\ui\\src\\app\\services",
+    "\\ui\\src\\app\\userlist"
   ],
-  "SelectedNode": "\\ui\\src\\app\\home\\home.component.ts",
+  "SelectedNode": "\\ui\\src\\app\\userlist\\userlist.component.ts",
   "PreviewInSolutionExplorer": false
 }
