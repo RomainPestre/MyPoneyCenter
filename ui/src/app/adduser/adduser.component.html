@@ -2,10 +2,10 @@
   <h2>Add new user</h2>
 
   <form #adduserform="ngForm" (ngSubmit)="addUserformsubmit()">
-    <div class="form-group">
-      <label for="id">Id:</label>
-      <input type="text" class="form-control" required [(ngModel)]="user.id" name="id" />
-    </div>
+    <!--<div class="form-group">
+    <label for="id">Id:</label>
+    <input type="text" class="form-control" required [(ngModel)]="user.id" name="id" />
+  </div>-->
     <div class="form-group">
       <label for="id">Firstname:</label>
       <input type="text" class="form-control" required [(ngModel)]="user.firstname" name="firstname" />
@@ -26,10 +26,10 @@
       <label for="id">License:</label>
       <input type="text" class="form-control" required [(ngModel)]="user.license" name="license" />
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
       <label for="id">Privileges:</label>
       <input type="text" class="form-control" required [(ngModel)]="user.privileges" name="privileges" />
-    </div>
+    </div>-->
     <div class="form-group">
       <label for="id">Password:</label>
       <input type="password" class="form-control" required [(ngModel)]="user.password" name="password" />
