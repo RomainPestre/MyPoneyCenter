@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgserviceService } from '../ngservice.service';
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.css']
 })
-export class NavbarComponent implements OnInit {
-  isUserLoggedIn: boolean;
+export class CoursesComponent implements OnInit {
   isInstructor: boolean;
   isAdmin: boolean;
   isSuper: boolean;
 
-  constructor(private _service: NgserviceService, private authService: AuthService) {
-    this.authService.isUserLoggedIn.subscribe(value => {
-      this.isUserLoggedIn = value;
-    });
+  constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
     this.authService.isInstructor.subscribe(value => {
       this.isInstructor = value;
     });
@@ -31,4 +27,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

@@ -23,6 +23,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     AdminComponent,
     AdminlistComponent,
     CalendarComponent,
+    CoursesComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class AuthService {
   isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSession: BehaviorSubject<string> = new BehaviorSubject<string>('');
   isId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
+  isInstructor: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSuper: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 

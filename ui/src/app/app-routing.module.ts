@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminlistComponent } from './adminlist/adminlist.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   { path: '', component: ProductlistComponent },
@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'edituser', component: EdituserComponent },
   { path: 'adminpanel', component: AdminComponent },
   { path: 'adminlist', component: AdminlistComponent },
-  { path: 'calendar', component: CalendarComponent },
+  { path: 'courses', component: CoursesComponent },
 ];
 
 @NgModule({
