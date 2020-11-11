@@ -14,6 +14,9 @@ export class CoursesComponent implements OnInit {
   course = new CourseComponent;
   _courselist: CourseComponent[];
 
+  idList: number[];
+  idAvailable: number;
+
   isInstructor: boolean;
   isAdmin: boolean;
   isSuper: boolean;
@@ -35,22 +38,44 @@ export class CoursesComponent implements OnInit {
       data => {
         console.log("Response recieved");
         this._courselist = data;
+        this.searchAvailableId();
       },
       error => console.log("Exception occured")
     )
   }
 
   addCourseformsubmit() {
-    console.log("Date : " + this.course.date);
-    console.log("Time : " + this.course.time);
-    /*
+    //Format date : yyyy-mm-dd
+    //Format time : hh:mm
+    //console.log("Date : " + this.course.date);
+    //console.log("Time : " + this.course.time);
+
+    this.course.id = this.idAvailable;
+
     this._service.addCourseToRemote(this.course).subscribe(
       data => {
         console.log("Data added succesfully");
-        this._route.navigate(['userlist']);
+        this._route.navigate(['home']);
       },
       error => console.log("Error")
-    )*/
+    )
+    //this.searchAvailableId();
+  }
+
+  searchAvailableId() {
+    var idList = [];
+    var idAvailable = null;
+
+    this._courselist.forEach(course => {
+      idList.push(course.id);
+    });
+    this.idList = idList;
+    //console.log(idList);
+
+    idAvailable = idList[idList.length - 1] + 1;
+    //console.log("Id Available : " + idAvailable);
+
+    this.idAvailable = idAvailable;
   }
 
 }

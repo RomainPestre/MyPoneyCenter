@@ -15,7 +15,7 @@ import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
-  { path: '', component: ProductlistComponent },
+  { path: '', component: HomeComponent },
   { path: 'addproduct', component: AddproductComponent },
   { path: 'editproduct', component: EditproductComponent },
   { path: 'editproduct/:id', component: EditproductComponent },

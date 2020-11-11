@@ -15,10 +15,10 @@
           <a class="nav-link" routerLink="adduser">Sign Up</a>
         </li>
         <li *ngIf="isUserLoggedIn" class="nav-item">
-          <a class="nav-link" routerLink="login">Sign Out</a>
-        </li>
-        <li *ngIf="isInstructor" class="nav-item">
           <a class="nav-link" routerLink="courses">Courses</a>
+        </li>
+        <li *ngIf="isUserLoggedIn" class="nav-item">
+          <a class="nav-link" routerLink="login">Sign Out</a>
         </li>
         <li *ngIf="isAdmin" class="nav-item">
           <a class="nav-link" routerLink="adminpanel">Admin panel</a>

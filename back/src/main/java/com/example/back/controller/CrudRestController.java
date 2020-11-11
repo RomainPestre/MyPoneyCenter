@@ -106,4 +106,10 @@ public class CrudRestController {
 		courses = service.fetchcourseList();
 		return courses;
 	}
+	
+	@PostMapping("/addcourse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Course saveCourse(@RequestBody Course course){
+		return service.saveCourseToDB(course);
+	}
 }

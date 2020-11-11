@@ -77,4 +77,9 @@ public class CrudService {
 	public List<Course> fetchcourseList(){
 		return courseRepo.findAll();
 	}
+	
+	public Course saveCourseToDB(Course course) {
+		return courseRepo.save(course);
+	}
+	
 }
