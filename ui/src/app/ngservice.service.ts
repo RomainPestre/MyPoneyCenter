@@ -69,8 +69,16 @@ export class NgserviceService {
     return this._http.post<any>("http://localhost:8080/test2", p);
   }
 
-  updateUser(u: UserComponent): Observable<any> {
-    return this._http.post<any>("http://localhost:8080/updateuser", u);
+  updateUser(user: UserComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/updateuser", user);
+  }
+
+  updateCourse(course: CourseComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/updatecourse", course);
+  }
+
+  fetchCourseByIdFromRemote(id: number): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getcoursebyid/" + id);
   }
 
 }

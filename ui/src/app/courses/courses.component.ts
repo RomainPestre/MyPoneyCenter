@@ -15,9 +15,6 @@ export class CoursesComponent implements OnInit {
   course = new CourseComponent;
   _courselist: CourseComponent[];
 
-  idList: number[];
-  idAvailable: number;
-
   connectedUser: UserComponent;
   isUserLoggedIn: boolean;
   isInstructor: boolean;
@@ -47,7 +44,6 @@ export class CoursesComponent implements OnInit {
       data => {
         console.log("Response recieved");
         this._courselist = data;
-        this.searchAvailableId();
       },
       error => console.log("Exception occured")
     )
@@ -59,8 +55,6 @@ export class CoursesComponent implements OnInit {
     //console.log("Date : " + this.course.date);
     //console.log("Time : " + this.course.time);
 
-    this.course.id = this.idAvailable;
-
     this._service.addCourseToRemote(this.course).subscribe(
       data => {
         console.log("Data added succesfully");
@@ -68,45 +62,53 @@ export class CoursesComponent implements OnInit {
       },
       error => console.log("Error")
     )
-    //this.searchAvailableId();
-  }
-
-  searchAvailableId() {
-    var idList = [];
-    var idAvailable = null;
-
-    this._courselist.forEach(course => {
-      idList.push(course.id);
-    });
-    this.idList = idList;
-    //console.log(idList);
-
-    idAvailable = idList[idList.length - 1] + 1;
-    //console.log("Id Available : " + idAvailable);
-
-    this.idAvailable = idAvailable;
   }
 
   register(id: number) {
-    console.log(id);
-
     //Ajouter l'id du cours dans la bdd du cavalier
     if (this.connectedUser.courses == null) {
       this.connectedUser.courses = id.toString();
-      console.log("Inscription à un premier cours : " + this.connectedUser.courses)
+      console.log("1. Inscription à un premier cours : " + this.connectedUser.courses)
     } else {
       this.connectedUser.courses = this.connectedUser.courses.concat(",", id.toString());
-      console.log("Inscription à un nouveau cours : " + this.connectedUser.courses)
+      console.log("1. Inscription à un nouveau cours : " + this.connectedUser.courses)
     }
-    console.log("this.connectedUser.courses = " + this.connectedUser.courses)
-    this._service.addUserToRemote(this.connectedUser).subscribe(
+
+    this._service.updateUser(this.connectedUser).subscribe(
       data => {
-        console.log("Data added succesfully");
+        console.log("2. User updated succesfully");
         //this._route.navigate(['home']);
       },
-      error => console.log("Error")
+      error => console.log("2. Error")
+    )
+    console.log("3. Id du cours : " + this.course.id);
+
+    //Récupérer le cours
+    this._service.fetchCourseByIdFromRemote(id).subscribe(
+      data => {
+        console.log("4. data recieved")
+        this.course = data;
+      },
+      error => console.log("4. error")
     )
 
     //Ajouter l'id du cavalier dans la bdd du cours
+    if (this.course.users_id == null) {
+      this.course.users_id = this.connectedUser.id.toString();
+      console.log("5. Inscription d'un premier cavalier : " + this.course.users_id)
+    } else {
+      this.course.users_id = this.course.users_id.concat(",", this.connectedUser.id.toString());
+      console.log("5. Inscription d'un nouveau cavalier : " + this.course.users_id)
+    }
+
+    this._service.updateCourse(this.course).subscribe(
+      data => {
+        console.log("6. Course updated succesfully");
+        //this._route.navigate(['home']);
+      },
+      error => console.log("6. Error : cannot update course")
+    )
+
+    //TODO : régler le problème de synchronisation
   }
 }

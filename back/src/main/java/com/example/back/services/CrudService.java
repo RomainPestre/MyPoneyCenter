@@ -135,6 +135,7 @@ public class CrudService {
 			String courses) {
 		Optional<User> myUser = userRepo.findById(id);
 		User user = myUser.get();
+		user.id = id;
 		user.email = email;
 		user.password = password;
 		user.name = name;
@@ -186,6 +187,30 @@ public class CrudService {
 	
 	public Course saveCourseToDB(Course course) {
 		return courseRepo.save(course);
+	}
+
+	public void updateCourse(
+			int id,
+			String date,
+			String time,
+			int size,
+			String users_id,
+			String horses_id,
+			String description) {
+		Optional<Course> myCourse = courseRepo.findById(id);
+		Course course = myCourse.get();
+		course.date = date;
+		course.description = description;
+		course.horses_id = horses_id;
+		course.id = id;
+		course.size = size;
+		course.time = time;
+		course.users_id = users_id;
+		courseRepo.save(course);
+	}
+	
+	public Optional<Course> fetchCourseById(int id) {
+		return courseRepo.findById(id);
 	}
 	
 }

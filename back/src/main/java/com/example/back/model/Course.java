@@ -1,19 +1,22 @@
 package com.example.back.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Course {
 
 	@Id
-	private int id;
-	private String date;
-	private String time;
-	private int size;
-	private String users_id;
-	private String horses_id;
-	private String description;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	public int id;
+	public String date;
+	public String time;
+	public int size;
+	public String users_id;
+	public String horses_id;
+	public String description;
 	
 	public Course() {
 		

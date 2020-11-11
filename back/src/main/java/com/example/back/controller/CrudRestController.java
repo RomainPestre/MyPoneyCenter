@@ -115,26 +115,6 @@ public class CrudRestController {
 	
 	
 	
-	
-	//COURSE
-	
-
-	@GetMapping("/getcourselist")
-	@CrossOrigin(origins = "http://localhost:4200")
-	public List<Course> fetchCourseList(){
-		List<Course> courses = new ArrayList<Course>();
-		
-		//Logic to fetch list from database
-		courses = service.fetchcourseList();
-		return courses;
-	}
-	
-	@PostMapping("/addcourse")
-	@CrossOrigin(origins = "http://localhost:4200")
-	public Course saveCourse(@RequestBody Course course){
-		return service.saveCourseToDB(course);
-	}
-	
 
 	/*
 	@PostMapping("/test")
@@ -233,5 +213,47 @@ public class CrudRestController {
 		return service.fetchUserByEmailAndPassword(email, password).get();
 	}
 	
+
+	
+	//COURSE
+	
+
+	@GetMapping("/getcourselist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<Course> fetchCourseList(){
+		List<Course> courses = new ArrayList<Course>();
+		
+		//Logic to fetch list from database
+		courses = service.fetchcourseList();
+		return courses;
+	}
+	
+	@PostMapping("/addcourse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Course saveCourse(@RequestBody Course course){
+		return service.saveCourseToDB(course);
+	}
+	
+
+	@PostMapping("/updatecourse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Course updateCourse(@RequestBody Course c){
+		service.updateCourse(
+				c.id,
+				c.date,
+				c.time,
+				c.size,
+				c.users_id,
+				c.horses_id,
+				c.description
+		);
+		return c;
+	}
+	
+	@GetMapping("/getcoursebyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Course fetchCourseById(@PathVariable int id){
+		return service.fetchCourseById(id).get();
+	}
 	
 }
