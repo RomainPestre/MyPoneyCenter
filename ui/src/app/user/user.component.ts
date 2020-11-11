@@ -19,6 +19,7 @@ export class UserComponent implements OnInit {
   privileges: number;
   session: string;
   expiration: string;
+  courses: string;
 
   ngOnInit(): void {
   }

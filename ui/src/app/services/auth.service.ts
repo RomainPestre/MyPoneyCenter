@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { formatDate } from '@angular/common';
 import { sha256 } from 'js-sha256';
+import { UserComponent } from '../user/user.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
 
   constructor() { }
 
+  connectedUser: BehaviorSubject<UserComponent> = new BehaviorSubject<UserComponent>(null);
   isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSession: BehaviorSubject<string> = new BehaviorSubject<string>('');
   isId: BehaviorSubject<number> = new BehaviorSubject<number>(null);

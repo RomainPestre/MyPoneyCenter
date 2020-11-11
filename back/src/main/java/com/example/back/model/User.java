@@ -6,22 +6,23 @@ import javax.persistence.Id;
 @Entity
 public class User {
 	@Id
-	private int id;
-	private String email;
-	private String password;
-	private String name;
-	private String firstname;
-	private String phone;
-	private String license;
-	private int privileges;
-	private String session;
-	private String expiration;
+	public int id;
+	public String email;
+	public String password;
+	public String name;
+	public String firstname;
+	public String phone;
+	public String license;
+	public int privileges;
+	public String session;
+	public String expiration;
+	public String courses;
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session, String expiration) {
+	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session, String expiration, String courses) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -33,6 +34,7 @@ public class User {
 		this.privileges = privileges;
 		this.session = session;
 		this.expiration = expiration;
+		this.courses = courses;
 	}
 	
 	public int getId() {
@@ -98,6 +100,14 @@ public class User {
 
 	public void setExpiration(String expiration) {
 		this.expiration = expiration;
+	}
+
+	public String getCourses() {
+		return courses;
+	}
+
+	public void setCourses(String courses) {
+		this.courses = courses;
 	}
 
 }

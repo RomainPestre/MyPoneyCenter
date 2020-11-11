@@ -85,6 +85,7 @@ export class LoginComponent implements OnInit {
         
         //On signale à l'application qu'on est connecté, ce qui refresh la navbar
         this.authService.isUserLoggedIn.next(true);
+        this.authService.connectedUser.next(this.user);
 
         //Redirection vers la page associée
         switch (this.user.privileges) {

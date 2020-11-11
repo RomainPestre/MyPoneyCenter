@@ -4,13 +4,13 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\app",
-    "\\ui\\src\\app\\adduser",
-    "\\ui\\src\\app\\course",
-    "\\ui\\src\\app\\courses",
-    "\\ui\\src\\app\\login",
+    "\\ui\\src\\app\\admin",
+    "\\ui\\src\\app\\edituser",
+    "\\ui\\src\\app\\navbar",
+    "\\ui\\src\\app\\services",
     "\\ui\\src\\app\\user",
     "\\ui\\src\\app\\userlist"
   ],
-  "SelectedNode": "\\ui\\src\\app\\adduser\\adduser.component.html",
+  "SelectedNode": "\\ui\\src\\app\\edituser\\edituser.component.ts",
   "PreviewInSolutionExplorer": false
 }

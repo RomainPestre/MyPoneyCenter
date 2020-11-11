@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NgserviceService } from '../ngservice.service';
 import { AuthService } from '../services/auth.service';
 import { CourseComponent } from '../course/course.component';
+import { UserComponent } from '../user/user.component';
 
 
 @Component({
@@ -17,11 +18,19 @@ export class CoursesComponent implements OnInit {
   idList: number[];
   idAvailable: number;
 
+  connectedUser: UserComponent;
+  isUserLoggedIn: boolean;
   isInstructor: boolean;
   isAdmin: boolean;
   isSuper: boolean;
 
   constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
+    this.authService.connectedUser.subscribe(value => {
+      this.connectedUser = value;
+    });
+    this.authService.isUserLoggedIn.subscribe(value => {
+      this.isUserLoggedIn = value;
+    });
     this.authService.isInstructor.subscribe(value => {
       this.isInstructor = value;
     });
@@ -78,4 +87,26 @@ export class CoursesComponent implements OnInit {
     this.idAvailable = idAvailable;
   }
 
+  register(id: number) {
+    console.log(id);
+
+    //Ajouter l'id du cours dans la bdd du cavalier
+    if (this.connectedUser.courses == null) {
+      this.connectedUser.courses = id.toString();
+      console.log("Inscription à un premier cours : " + this.connectedUser.courses)
+    } else {
+      this.connectedUser.courses = this.connectedUser.courses.concat(",", id.toString());
+      console.log("Inscription à un nouveau cours : " + this.connectedUser.courses)
+    }
+    console.log("this.connectedUser.courses = " + this.connectedUser.courses)
+    this._service.addUserToRemote(this.connectedUser).subscribe(
+      data => {
+        console.log("Data added succesfully");
+        //this._route.navigate(['home']);
+      },
+      error => console.log("Error")
+    )
+
+    //Ajouter l'id du cavalier dans la bdd du cours
+  }
 }

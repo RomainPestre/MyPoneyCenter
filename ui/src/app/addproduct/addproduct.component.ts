@@ -27,6 +27,16 @@ export class AddproductComponent implements OnInit {
     )
   }
 
+  addTestformsubmit() {
+    this._service.addTest1(this.product.name).subscribe(
+      data => {
+        console.log("data added succesfully");
+        this._route.navigate(['productlist']);
+      },
+      error => console.log("error")
+    )
+  }
+
   gotolist() {
     console.log("go back");
     this._route.navigate(['productlist']);

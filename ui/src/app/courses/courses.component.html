@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div>
+  <div *ngIf="isUserLoggedIn">
     <div *ngIf="!isInstructor">
       <h2>Add new course</h2>
 
@@ -39,6 +39,7 @@
             <th>Users</th>
             <th>Horses</th>
             <th>Description</th>
+            <th>Register</th>
             <th *ngIf="isInstructor">Actions</th>
           </tr>
         </thead>
@@ -51,8 +52,10 @@
             <td>{{course.users_id}}</td>
             <td>{{course.horses_id}}</td>
             <td>{{course.description}}</td>
-            <td *ngIf="isInstructor">
+            <td>
+              <button type="button" class="btn btn-success" (click)="register(course.id)">Register</button>&nbsp;&nbsp;
             </td>
+            <td *ngIf="isInstructor"></td>
           </tr>
         </tbody>
       </table>

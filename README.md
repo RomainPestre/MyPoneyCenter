@@ -84,3 +84,7 @@ Super utilisateur (admin|AdminMyPoneyCenter)
 ```
 INSERT INTO user VALUES (0, 'superuser@myponeycenter.com', '', 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, '')
 ```
+
+### Un problème rencontré
+Lorsque que je veux modifier un objet en BDD j'obtiens une erreur `org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException: Violation d'index unique ou clé primaire: "PRIMARY KEY ON PUBLIC.PRODUCT(ID)`.
+Soit je supprime cette propriété soit je supprime l'objet avant de l'ajouter de nouveau.

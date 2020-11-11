@@ -61,4 +61,16 @@ export class NgserviceService {
     return this._http.post<any>("http://localhost:8080/addcourse", course);
   }
 
+  addTest1(test: string): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/test", test);
+  }
+
+  addTest2(p: ProductComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/test2", p);
+  }
+
+  updateUser(u: UserComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/updateuser", u);
+  }
+
 }

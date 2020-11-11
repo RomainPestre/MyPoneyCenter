@@ -31,7 +31,7 @@ export class EdituserComponent implements OnInit {
 
   updateUserformsubmit() {
     this.user.password = this.authService.securePassword(this.user.password, this.user.email);
-    this._service.addUserToRemote(this.user).subscribe(
+    this._service.updateUser(this.user).subscribe(
       data => {
         console.log("User added succesfully");
         this._route.navigate(['home']);
