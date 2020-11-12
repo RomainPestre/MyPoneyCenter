@@ -29,6 +29,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
+import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CourseComponent } from './course/course.component';
     AdminlistComponent,
     CoursesComponent,
     CourseComponent,
+    CourseregistrationComponent,
   ],
   imports: [
     BrowserModule,

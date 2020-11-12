@@ -19,6 +19,8 @@ export class AuthService {
   isAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSuper: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  courseRegistrationId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
+
 
   securePassword(rawPwd, saltVar1) {
     var securePwd = "";

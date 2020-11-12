@@ -4,6 +4,7 @@ import { NgserviceService } from '../ngservice.service';
 import { AuthService } from '../services/auth.service';
 import { CourseComponent } from '../course/course.component';
 import { UserComponent } from '../user/user.component';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -20,6 +21,9 @@ export class CoursesComponent implements OnInit {
   isInstructor: boolean;
   isAdmin: boolean;
   isSuper: boolean;
+
+  //Le cours a register
+  courseId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
   constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
     this.authService.connectedUser.subscribe(value => {
@@ -65,50 +69,7 @@ export class CoursesComponent implements OnInit {
   }
 
   register(id: number) {
-    //Ajouter l'id du cours dans la bdd du cavalier
-    if (this.connectedUser.courses == null) {
-      this.connectedUser.courses = id.toString();
-      console.log("1. Inscription à un premier cours : " + this.connectedUser.courses)
-    } else {
-      this.connectedUser.courses = this.connectedUser.courses.concat(",", id.toString());
-      console.log("1. Inscription à un nouveau cours : " + this.connectedUser.courses)
-    }
-
-    this._service.updateUser(this.connectedUser).subscribe(
-      data => {
-        console.log("2. User updated succesfully");
-        //this._route.navigate(['home']);
-      },
-      error => console.log("2. Error")
-    )
-    console.log("3. Id du cours : " + this.course.id);
-
-    //Récupérer le cours
-    this._service.fetchCourseByIdFromRemote(id).subscribe(
-      data => {
-        console.log("4. data recieved")
-        this.course = data;
-      },
-      error => console.log("4. error")
-    )
-
-    //Ajouter l'id du cavalier dans la bdd du cours
-    if (this.course.users_id == null) {
-      this.course.users_id = this.connectedUser.id.toString();
-      console.log("5. Inscription d'un premier cavalier : " + this.course.users_id)
-    } else {
-      this.course.users_id = this.course.users_id.concat(",", this.connectedUser.id.toString());
-      console.log("5. Inscription d'un nouveau cavalier : " + this.course.users_id)
-    }
-
-    this._service.updateCourse(this.course).subscribe(
-      data => {
-        console.log("6. Course updated succesfully");
-        //this._route.navigate(['home']);
-      },
-      error => console.log("6. Error : cannot update course")
-    )
-
-    //TODO : régler le problème de synchronisation
+    this.authService.courseRegistrationId.next(id);
+    this._route.navigate(['courseregistration']);
   }
 }

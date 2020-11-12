@@ -13,6 +13,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CoursesComponent } from './courses/courses.component';
+import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'adminpanel', component: AdminComponent },
   { path: 'adminlist', component: AdminlistComponent },
   { path: 'courses', component: CoursesComponent },
+  { path: 'courseregistration', component: CourseregistrationComponent },
 ];
 
 @NgModule({
