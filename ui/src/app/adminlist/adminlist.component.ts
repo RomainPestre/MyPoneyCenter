@@ -38,7 +38,7 @@ export class AdminlistComponent implements OnInit {
     )
   }
 
-  goToAddAdmin() {
+  addAdmin() {
     this._route.navigate(['/addadmin']);
   }
 

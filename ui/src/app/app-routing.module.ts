@@ -15,6 +15,7 @@ import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
 import { EditadminComponent } from './editadmin/editadmin.component';
+import { AddadminComponent } from './addadmin/addadmin.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'productlist', component: ProductlistComponent },
   { path: 'userlist', component: UserlistComponent },
   { path: 'adduser', component: AdduserComponent },
+  { path: 'addadmin', component: AddadminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'edituser', component: EdituserComponent },

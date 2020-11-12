@@ -62,8 +62,8 @@ export class AdduserComponent implements OnInit {
     this.idAvailable = idAvailable;
   }*/
 
-  gotolist() {
+  goback() {
     console.log("go back");
-    this._route.navigate(['userlist']);
+    this._route.navigate(['home']);
   }
 }
