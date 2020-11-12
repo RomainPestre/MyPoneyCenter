@@ -1,16 +1,15 @@
 <div class="container">
-
-  <h2>Administration panel</h2>
-
-  <br /><br />
-
   <div *ngIf="isAdmin">
+    <h2>Administration panel</h2>
+
+    <br /><br />
+
     <button type="button" class="btn btn-success" (click)="goToUserList()">User list</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" (click)="goToInstructorList()">Instructor list</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-success" (click)="goToAdminList()">Admin list</button>&nbsp;&nbsp;
   </div>
 
   <div *ngIf="!isAdmin">
     You don't have access to this page.
   </div>
-
 </div>

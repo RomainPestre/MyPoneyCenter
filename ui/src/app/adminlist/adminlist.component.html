@@ -1,7 +1,8 @@
 <div class="container">
-  <div *ngIf="isSuper">
+  <div *ngIf="isAdmin">
     <h2>Admin list</h2>
-    <br />
+
+    <br /><br />
 
     <button type="button" class="btn btn-success" (click)="addAdmin()">Add new admin</button>&nbsp;&nbsp;
 
@@ -38,7 +39,7 @@
     </table>
   </div>
 
-  <div *ngIf="!isSuper">
+  <div *ngIf="!isAdmin">
     <p>You don't have access to this page.</p>
   </div>
 </div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductComponent } from '../product/product.component';
 import { Router } from '@angular/router';
 import { NgserviceService } from '../ngservice.service';
 import { UserComponent } from '../user/user.component';
@@ -20,15 +19,6 @@ export class AdduserComponent implements OnInit {
   constructor(private _route: Router, private _service: NgserviceService) { }
 
   ngOnInit(): void {
-    //On récupère les IDs existant pour en utiliser un différent
-    this._service.fetchUserListFromRemote().subscribe(
-      data => {
-        console.log("Response recieved");
-        this._userlist = data;
-        //this.searchAvailableId(); //L'attribution d'un id se fait automatiquement dans le back-end avec @GeneratedValue(strategy = GenerationType.AUTO)
-      },
-      error => console.log("Exception occured")
-    )
   }
 
   addUserformsubmit() {

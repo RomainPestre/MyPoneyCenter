@@ -29,6 +29,11 @@ export class AdminComponent implements OnInit {
     console.log("Go to user list");
   }
 
+  goToInstructorList() {
+    this._route.navigate(['instructorlist']);
+    console.log("Go to instructor list");
+  }
+
   goToAdminList() {
     this._route.navigate(['adminlist']);
     console.log("Go to admin list");

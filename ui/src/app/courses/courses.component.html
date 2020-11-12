@@ -1,7 +1,7 @@
 <div class="container">
 
   <div *ngIf="isUserLoggedIn">
-    <div *ngIf="!isInstructor">
+    <div *ngIf="isInstructor">
       <h2>Add new course</h2>
 
       <form #adduserform="ngForm" (ngSubmit)="addCourseformsubmit()">

@@ -12,11 +12,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class AddadminComponent implements OnInit {
   user = new UserComponent;
-  isSuper: boolean;
+  isAdmin: boolean;
 
   constructor(private _route: Router, private _service: NgserviceService, private authService: AuthService) {
-    this.authService.isSuper.subscribe(value => {
-      this.isSuper = value;
+    this.authService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
     });
   }
 
@@ -28,7 +28,7 @@ export class AddadminComponent implements OnInit {
     this._service.addUserToRemote(this.user).subscribe(
       data => {
         console.log("User succesfully created");
-        this._route.navigate(['userlist']);
+        this._route.navigate(['adminpanel']);
       },
       error => console.log("Error")
     )
@@ -36,6 +36,6 @@ export class AddadminComponent implements OnInit {
 
   gotolist() {
     console.log("Go back");
-    this._route.navigate(['adminlist']);
+    this._route.navigate(['adminpanel']);
   }
 }

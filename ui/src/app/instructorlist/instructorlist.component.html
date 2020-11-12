@@ -1,10 +1,10 @@
 <div class="container">
   <div *ngIf="isAdmin">
-    <h2>User list</h2>
+    <h2>Instructors list</h2>
 
     <br /><br />
 
-    <button type="button" class="btn btn-success" (click)="goToAddUser()">Add new user</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-success" (click)="addAdmin()">Add new instructor</button>&nbsp;&nbsp;
 
     <br /><br />
 
@@ -31,9 +31,8 @@
           <td>{{user.license}}</td>
           <td>{{user.privileges}}</td>
           <td>
-            <button type="button" class="btn btn-primary" (click)="goToEditProduct(user.id)">Edit</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-info" (click)="goToViewUser(user.id)">View</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-danger" (click)="deleteProduct(user.id)">Delete</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" (click)="editAdmin(user.id)">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteAdmin(user.id)">Delete</button>&nbsp;&nbsp;
           </td>
         </tr>
       </tbody>

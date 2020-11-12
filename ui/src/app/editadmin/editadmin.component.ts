@@ -12,11 +12,11 @@ import { AuthService } from '../services/auth.service';
 export class EditadminComponent implements OnInit {
   user = new UserComponent;
 
-  isSuper: boolean;
+  isAdmin: boolean;
 
   constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
-    this.authService.isSuper.subscribe(value => {
-      this.isSuper = value;
+    this.authService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
     });
   }
 

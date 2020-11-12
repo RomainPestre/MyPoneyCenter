@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { UserComponent } from '../user/user.component';
 import { NgserviceService } from '../ngservice.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UserComponent } from '../user/user.component';
 
 @Component({
-  selector: 'app-adminlist',
-  templateUrl: './adminlist.component.html',
-  styleUrls: ['./adminlist.component.css']
+  selector: 'app-instructorlist',
+  templateUrl: './instructorlist.component.html',
+  styleUrls: ['./instructorlist.component.css']
 })
-export class AdminlistComponent implements OnInit {
-  _adminlist: UserComponent[];
+export class InstructorlistComponent implements OnInit {
+  _userlist: UserComponent[];
   isAdmin: boolean;
 
   constructor(private _service: NgserviceService, private _route: Router, private authService: AuthService) {
@@ -20,12 +20,12 @@ export class AdminlistComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._service.fetchUserListByPrivileges(this.authService.privilegesAdmin).subscribe(
+    this._service.fetchUserListByPrivileges(1).subscribe(
       data => {
-        console.log("Admin list successfully fetched");
-        this._adminlist = data;
+        console.log("Instructors fetched");
+        this._userlist = data;
       },
-      error => console.log("Error : exception occured")
+      error => console.log("Error : cannot fetch instructors")
     )
   }
 

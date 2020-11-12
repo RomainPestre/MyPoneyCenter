@@ -98,8 +98,8 @@ INSERT INTO user VALUES (1,'', 'admin', '', 'admin', 'License', 'admin', '02e466
 
 
 ```
-INSERT INTO user VALUES (0,'', 'superuser@myponeycenter.com', '', 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, '');
-INSERT INTO user VALUES (1,'', 'admin', '', 'admin', 'License', 'admin', '02e4668e63c7f66339cfa39e4c1148e0be5e1a194338109f60b9c7e8709dd3ee', '0600000000', 2, '');
+INSERT INTO user VALUES (0, NULL, 'superuser@myponeycenter.com', NULL, 'Super', 'License', 'Utilisateur', '22274a49d31a5e3349a644a885580e31e6902150de5547871297ea83da70d078', '0600000000', 4, NULL);
+INSERT INTO user VALUES (1, NULL, 'admin', NULL, 'admin', 'License', 'admin', '02e4668e63c7f66339cfa39e4c1148e0be5e1a194338109f60b9c7e8709dd3ee', '0600000000', 2, NULL);
 
 ```
 

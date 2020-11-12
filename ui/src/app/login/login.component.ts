@@ -139,12 +139,12 @@ export class LoginComponent implements OnInit {
       case 2:
         this.authService.isAdmin.next(true);
         this.authService.isSuper.next(false);
-        this.authService.isInstructor.next(false);
+        this.authService.isInstructor.next(true);
         break;
       case 4:
         this.authService.isAdmin.next(true);
         this.authService.isSuper.next(true);
-        this.authService.isInstructor.next(false);
+        this.authService.isInstructor.next(true);
         break;
     }
   }

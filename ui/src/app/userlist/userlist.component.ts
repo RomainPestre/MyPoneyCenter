@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgserviceService } from '../ngservice.service';
 import { Router } from '@angular/router';
 import { UserComponent } from '../user/user.component';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-userlist',
@@ -10,16 +11,21 @@ import { UserComponent } from '../user/user.component';
 })
 export class UserlistComponent implements OnInit {
   _userlist: UserComponent[];
+  isAdmin: boolean;
 
-  constructor(private _service: NgserviceService, private _route: Router) { }
+  constructor(private _service: NgserviceService, private _route: Router, private authService: AuthService) {
+    this.authService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
+    });
+  }
 
   ngOnInit(): void {
-    this._service.fetchUserListFromRemote().subscribe(
+    this._service.fetchUserListByPrivileges(0).subscribe(
       data => {
-        console.log("Response recieved");
+        console.log("Users fetched");
         this._userlist = data;
       },
-      error=>console.log("Exception occured")
+      error=>console.log("Error : cannot fetch users")
     )
   }
 

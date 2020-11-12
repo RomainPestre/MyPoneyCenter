@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="isSuper">
+  <div *ngIf="isAdmin">
     <h2>Edit user</h2>
 
     <br /><br />
@@ -39,7 +39,7 @@
     </form>
   </div>
 
-  <div *ngIf="!isSuper">
+  <div *ngIf="!isAdmin">
     <p>You don't have access to this page.</p>
   </div>
 </div>

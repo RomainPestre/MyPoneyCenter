@@ -16,6 +16,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
 import { EditadminComponent } from './editadmin/editadmin.component';
 import { AddadminComponent } from './addadmin/addadmin.component';
+import { InstructorlistComponent } from './instructorlist/instructorlist.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'editadmin/:id', component: EditadminComponent },
   { path: 'adminpanel', component: AdminComponent },
   { path: 'adminlist', component: AdminlistComponent },
+  { path: 'instructorlist', component: InstructorlistComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'courseregistration', component: CourseregistrationComponent },
 ];
