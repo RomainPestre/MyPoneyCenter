@@ -34,7 +34,7 @@ export class UserlistComponent implements OnInit {
 
   goToViewProduct(id: number) {
     console.log("View producti id : " + id);
-    this._route.navigate(['/viewproduct', id]);
+    this._route.navigate(['/viewuser', id]);
   }
 
   deleteProduct(id: number) {

@@ -73,12 +73,24 @@ export class NgserviceService {
     return this._http.post<any>("http://localhost:8080/updateuser", user);
   }
 
+  updateAdmin(user: UserComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/updateadmin", user);
+  }
+
   updateCourse(course: CourseComponent): Observable<any> {
     return this._http.post<any>("http://localhost:8080/updatecourse", course);
   }
 
   fetchCourseByIdFromRemote(id: number): Observable<any> {
     return this._http.get<any>("http://localhost:8080/getcoursebyid/" + id);
+  }
+
+  fetchUserListByPrivileges(privileges: number): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/getuserlistbyprivileges/" + privileges);
+  }
+
+  deleteUserByIdFromRemote(id: number): Observable<any> {
+    return this._http.delete<any>("http://localhost:8080/deleteuserbyid/" + id);
   }
 
 }

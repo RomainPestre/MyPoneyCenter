@@ -121,6 +121,11 @@ public class CrudService {
 	}
 	*/
 	
+	
+
+	@Autowired
+	private UserRepo userRepo;
+	
 	public void updateUser(
 			int id,
 			String email,
@@ -149,10 +154,31 @@ public class CrudService {
 		userRepo.save(user);
 	}
 	
-	
-
-	@Autowired
-	private UserRepo userRepo;
+	public void updateAdmin(
+			int id,
+			String email,
+			String name,
+			String firstname,
+			String phone,
+			String license,
+			int privileges,
+			String session,
+			String expiration,
+			String courses) {
+		Optional<User> myUser = userRepo.findById(id);
+		User user = myUser.get();
+		user.id = id;
+		user.email = email;
+		user.name = name;
+		user.firstname = firstname;
+		user.phone = phone;
+		user.license = license;
+		user.privileges = privileges;
+		user.session = session;
+		user.expiration = expiration;
+		user.courses = courses;
+		userRepo.save(user);
+	}
 	
 	public List<User> fetchuserList(){
 		return userRepo.findAll();
@@ -176,6 +202,23 @@ public class CrudService {
 	
 	public Optional<User> fetchUserByEmailAndPassword(String email, String password) {
 		return userRepo.findByEmailAndPassword(email, password);
+	}
+	
+	public List<User> fetchUserListByPrivileges(int privileges){
+		return userRepo.findByPrivilegesEquals(privileges);
+	}
+	
+	public String deleteUserById(int id) {
+		String result;
+		try {
+			userRepo.deleteById(id);
+			result = "User succesfully deleted.";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = "ERROR : id is null.";
+		}
+		return result;
 	}
 	
 	@Autowired

@@ -19,6 +19,11 @@ export class AuthService {
   isAdmin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isSuper: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
+  privilegesRider = 0;
+  privilegesInstructor = 1;
+  privilegesAdmin = 2;
+  privilegesSuperUser = 4;
+
   courseRegistrationId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
 

@@ -147,7 +147,7 @@ public class CrudRestController {
 	
 	
 	///USER
-	
+
 	
 	@PostMapping("/updateuser")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -156,6 +156,24 @@ public class CrudRestController {
 				u.id,
 				u.email,
 				u.password,
+				u.name,
+				u.firstname,
+				u.phone,
+				u.license,
+				u.privileges,
+				u.session,
+				u.expiration,
+				u.courses
+		);
+		return u;
+	}
+	
+	@PostMapping("/updateadmin")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public User updateAdmin(@RequestBody User u){
+		service.updateAdmin(
+				u.id,
+				u.email,
 				u.name,
 				u.firstname,
 				u.phone,
@@ -213,6 +231,21 @@ public class CrudRestController {
 		return service.fetchUserByEmailAndPassword(email, password).get();
 	}
 	
+	@GetMapping("/getuserlistbyprivileges/{privileges}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<User> fetchUserListByPrivileges(@PathVariable int privileges){
+		List<User> users = new ArrayList<User>();
+		
+		//Logic to fetch list from database
+		users = service.fetchUserListByPrivileges(privileges);
+		return users;
+	}
+	
+	@DeleteMapping("/deleteuserbyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public String DeleteUserById(@PathVariable int id){
+		return service.deleteUserById(id);
+	}
 
 	
 	//COURSE

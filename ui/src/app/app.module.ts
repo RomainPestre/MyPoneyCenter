@@ -30,6 +30,8 @@ import { AdminlistComponent } from './adminlist/adminlist.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
 import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
+import { EditadminComponent } from './editadmin/editadmin.component';
+import { AddadminComponent } from './addadmin/addadmin.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { CourseregistrationComponent } from './courseregistration/courseregistra
     CoursesComponent,
     CourseComponent,
     CourseregistrationComponent,
+    EditadminComponent,
+    AddadminComponent,
   ],
   imports: [
     BrowserModule,

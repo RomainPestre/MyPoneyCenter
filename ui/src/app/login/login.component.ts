@@ -102,6 +102,7 @@ export class LoginComponent implements OnInit {
             break;
           case 4: //super utilisateur
             this.goToHome();
+            this._route.navigate(['adminlist']);            
             break;
           default:
             this.goToHome();
