@@ -11,6 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class EditadminComponent implements OnInit {
   user = new UserComponent;
+  pwdfield: string;
 
   isAdmin: boolean;
 
@@ -32,11 +33,14 @@ export class EditadminComponent implements OnInit {
   }
 
   updateUserformsubmit() {
-    //this.user.password = this.authService.securePassword(this.user.password, this.user.email);
-    this._service.updateAdmin(this.user).subscribe(
+    if (this.pwdfield != null) {
+      this.user.password = this.authService.securePassword(this.pwdfield, this.user.email);
+    }
+
+    this._service.updateUser(this.user).subscribe(
       data => {
         console.log("User added succesfully");
-        this._route.navigate(['adminlist']);
+        this._route.navigate(['home']);
       },
       error => console.log("Error : cannot update user")
     )

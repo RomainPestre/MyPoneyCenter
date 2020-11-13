@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class EdituserComponent implements OnInit {
   user = new UserComponent;
   isId: number;
+  pwdfield: string;
 
   constructor(private _route: Router, private _service: NgserviceService, private _activatedRoute: ActivatedRoute, private authService: AuthService) {
     this.authService.isId.subscribe(value => {
@@ -30,7 +31,10 @@ export class EdituserComponent implements OnInit {
   }
 
   updateUserformsubmit() {
-    this.user.password = this.authService.securePassword(this.user.password, this.user.email);
+    if (this.pwdfield != null) {
+      this.user.password = this.authService.securePassword(this.pwdfield, this.user.email);
+    }
+
     this._service.updateUser(this.user).subscribe(
       data => {
         console.log("User added succesfully");

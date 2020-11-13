@@ -33,6 +33,10 @@
         <label for="id">Privileges</label>
         <input type="number" class="form-control" required [(ngModel)]="user.privileges" name="privileges" />
       </div>
+      <div class="form-group">
+        <label for="id">Password (Fill in only to change the password.)</label>
+        <input type="text" class="form-control" required [(ngModel)]="pwdfield" name="password" />
+      </div>
 
       <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary" (click)="goBack()">Back to the list</button>&nbsp;&nbsp;
