@@ -6,15 +6,15 @@
 
       <form #adduserform="ngForm" (ngSubmit)="addCourseformsubmit()">
         <div class="form-group">
-          <label for="id">Date:</label>
+          <label for="id">Date</label>
           <input type="date" class="form-control" required [(ngModel)]="course.date" name="date" />
         </div>
         <div class="form-group">
-          <label for="id">Time:</label>
+          <label for="id">Time</label>
           <input type="time" class="form-control" required [(ngModel)]="course.time" name="time" />
         </div>
         <div class="form-group">
-          <label for="id">Size:</label>
+          <label for="id">Size</label>
           <input type="number" class="form-control" required [(ngModel)]="course.size" name="size" />
         </div>
 

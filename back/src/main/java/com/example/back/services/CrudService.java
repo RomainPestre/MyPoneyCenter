@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 import com.example.back.model.Product;
 import com.example.back.model.User;
 import com.example.back.model.Course;
+import com.example.back.model.Horse;
 import com.example.back.repository.CrudRepo;
 import com.example.back.repository.UserRepo;
 import com.example.back.repository.CourseRepo;
+import com.example.back.repository.HorseRepo;
 
 @Service
 public class CrudService {
@@ -223,6 +225,15 @@ public class CrudService {
 		return result;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Autowired
 	private CourseRepo courseRepo;
 	
@@ -267,6 +278,57 @@ public class CrudService {
 		try {
 			courseRepo.deleteById(id);
 			result = "Course succesfully deleted.";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = "ERROR : id is null.";
+		}
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Autowired
+	private HorseRepo horseRepo;
+	
+	public List<Horse> fetchhorseList(){
+		return horseRepo.findAll();
+	}
+	
+	public Horse saveHorseToDB(Horse horse) {
+		return horseRepo.save(horse);
+	}
+
+	public void updateHorse(
+			int id,
+			String name,
+			String courses,
+			String courses_date) {
+		Optional<Horse> myHorse = horseRepo.findById(id);
+		Horse horse = myHorse.get();
+		horse.id = id;
+		horse.name = name;
+		horse.courses = courses;
+		horse.courses_date = courses_date;
+		horseRepo.save(horse);
+	}
+	
+	public Optional<Horse> fetchHorseById(int id) {
+		return horseRepo.findById(id);
+	}
+	
+	public String deleteHorseById(int id) {
+		String result;
+		try {
+			horseRepo.deleteById(id);
+			result = "Horse succesfully deleted.";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

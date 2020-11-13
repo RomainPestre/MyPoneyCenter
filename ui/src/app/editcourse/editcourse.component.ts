@@ -24,21 +24,20 @@ export class EditcourseComponent implements OnInit {
     let id = parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
     this._service.fetchCourseByIdFromRemote(id).subscribe(
       data => {
-        console.log("User recieved")
+        console.log("Course recieved")
         this.course = data;
       },
-      error => console.log("Error : Cannot fetch user by id")
+      error => console.log("Error : Cannot fetch course by id")
     )
   }
 
   updateCourseformsubmit() {
-    //this.user.password = this.authService.securePassword(this.user.password, this.user.email);
     this._service.updateCourse(this.course).subscribe(
       data => {
-        console.log("User added succesfully");
+        console.log("Course added succesfully");
         this._route.navigate(['courses']);
       },
-      error => console.log("Error : cannot update user")
+      error => console.log("Error : cannot update course")
     )
   }
 

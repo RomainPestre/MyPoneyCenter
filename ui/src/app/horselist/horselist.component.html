@@ -1,0 +1,45 @@
+<div class="container">
+
+  <div *ngIf="isUserLoggedIn">
+    <div *ngIf="isAdmin">
+      <h2>Add new Horse</h2>
+
+      <form #adduserform="ngForm" (ngSubmit)="addHorseformsubmit()">
+        <div class="form-group">
+          <label for="id">Name</label>
+          <input type="text" class="form-control" required [(ngModel)]="horse.name" name="name" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Add horse</button>
+      </form>
+
+      <br /><br />
+      <hr />
+      <br /><br />
+    </div>
+
+    <div *ngIf="isAdmin">
+      <h2>List of horses</h2>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let horse of _horselist">
+            <td>{{horse.id}}</td>
+            <td>{{horse.name}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" (click)="goToEditHorse(horse.id)">Edit</button>&nbsp;&nbsp;
+              <button type="button" class="btn btn-danger" (click)="deleteHorse(horse.id)">Delete</button>&nbsp;&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -34,6 +34,9 @@ import { EditadminComponent } from './editadmin/editadmin.component';
 import { AddadminComponent } from './addadmin/addadmin.component';
 import { InstructorlistComponent } from './instructorlist/instructorlist.component';
 import { EditcourseComponent } from './editcourse/editcourse.component';
+import { HorseComponent } from './horse/horse.component';
+import { HorselistComponent } from './horselist/horselist.component';
+import { EdithorseComponent } from './edithorse/edithorse.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,9 @@ import { EditcourseComponent } from './editcourse/editcourse.component';
     AddadminComponent,
     InstructorlistComponent,
     EditcourseComponent,
+    HorseComponent,
+    HorselistComponent,
+    EdithorseComponent,
   ],
   imports: [
     BrowserModule,

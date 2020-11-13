@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.back.model.Product;
 import com.example.back.model.User;
 import com.example.back.model.Course;
+import com.example.back.model.Horse;
 import com.example.back.services.CrudService;
 
 @RestController
@@ -297,5 +298,52 @@ public class CrudRestController {
 	public String DeleteCourseById(@PathVariable int id){
 		return service.deleteCourseById(id);
 	}
+
+
 	
+	//HORSE
+	
+
+	
+
+	@GetMapping("/gethorselist")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public List<Horse> fetchHorseList(){
+		List<Horse> horses = new ArrayList<Horse>();
+		
+		//Logic to fetch list from database
+		horses = service.fetchhorseList();
+		return horses;
+	}
+	
+	@PostMapping("/addhorse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Horse saveHorse(@RequestBody Horse horse){
+		return service.saveHorseToDB(horse);
+	}
+	
+
+	@PostMapping("/updatehorse")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Horse updateHorse(@RequestBody Horse h){
+		service.updateHorse(
+				h.id,
+				h.name,
+				h.courses,
+				h.courses_date
+		);
+		return h;
+	}
+	
+	@GetMapping("/gethorsebyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public Horse fetchHorseById(@PathVariable int id){
+		return service.fetchHorseById(id).get();
+	}
+	
+	@DeleteMapping("/deletehorsebyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public String DeleteHorseById(@PathVariable int id){
+		return service.deleteHorseById(id);
+	}
 }

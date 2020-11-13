@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ProductComponent } from './product/product.component';
 import { UserComponent } from './user/user.component';
 import { CourseComponent } from './course/course.component';
+import { HorseComponent } from './horse/horse.component';
 
 @Injectable({
   providedIn: 'root'
@@ -95,5 +96,25 @@ export class NgserviceService {
 
   deleteCourseByIdFromRemote(id: number): Observable<any> {
     return this._http.delete<any>("http://localhost:8080/deletecoursebyid/" + id);
+  }
+
+  addHorseToRemote(horse: HorseComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/addhorse", horse);
+  }
+
+  fetchHorseListFromRemote(): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/gethorselist");
+  }
+
+  deleteHorseByIdFromRemote(id: number): Observable<any> {
+    return this._http.delete<any>("http://localhost:8080/deletehorsebyid/" + id);
+  }
+
+  fetchHorseByIdFromRemote(id: number): Observable<any> {
+    return this._http.get<any>("http://localhost:8080/gethorsebyid/" + id);
+  }
+
+  updateHorse(horse: HorseComponent): Observable<any> {
+    return this._http.post<any>("http://localhost:8080/updatehorse", horse);
   }
 }

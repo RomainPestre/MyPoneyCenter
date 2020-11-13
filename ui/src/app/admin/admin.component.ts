@@ -38,4 +38,9 @@ export class AdminComponent implements OnInit {
     this._route.navigate(['adminlist']);
     console.log("Go to admin list");
   }
+
+  goToHorseList() {
+    this._route.navigate(['horselist']);
+    console.log("Go to horse list");
+  }
 }
