@@ -3,6 +3,7 @@ import { CourseComponent } from '../course/course.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgserviceService } from '../ngservice.service';
 import { AuthService } from '../services/auth.service';
+import { HorseComponent } from '../horse/horse.component';
 
 @Component({
   selector: 'app-editcourse',
@@ -11,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class EditcourseComponent implements OnInit {
   course = new CourseComponent;
+  _horsesnameStringList: string[];
 
   isInstructor: boolean;
 
@@ -26,12 +28,15 @@ export class EditcourseComponent implements OnInit {
       data => {
         console.log("Course recieved")
         this.course = data;
+        //On récupère la liste des id chevaux pour le cours
+        this._horsesnameStringList = this.convertStringToStringList(this.course.horses_name);
       },
       error => console.log("Error : Cannot fetch course by id")
     )
   }
 
   updateCourseformsubmit() {
+    //On met à jour la bdd du cours
     this._service.updateCourse(this.course).subscribe(
       data => {
         console.log("Course added succesfully");
@@ -39,6 +44,17 @@ export class EditcourseComponent implements OnInit {
       },
       error => console.log("Error : cannot update course")
     )
+  }
+
+  convertStringToStringList(string: string) {
+    var stringList;
+
+    if (string == null) {
+      return null;
+    } else {
+      stringList = string.split(', ');
+    }
+    return stringList;
   }
 
   goBack() {

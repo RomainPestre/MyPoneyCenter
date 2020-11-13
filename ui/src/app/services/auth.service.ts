@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 import { formatDate } from '@angular/common';
 import { sha256 } from 'js-sha256';
 import { UserComponent } from '../user/user.component';
+import { HorseComponent } from '../horse/horse.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,7 @@ export class AuthService {
   privilegesSuperUser = 4;
 
   courseRegistrationId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
+  horseRegistrationId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
 
   securePassword(rawPwd, saltVar1) {

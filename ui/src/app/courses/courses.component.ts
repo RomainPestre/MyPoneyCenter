@@ -88,6 +88,11 @@ export class CoursesComponent implements OnInit {
     this._route.navigate(['courseregistration']);
   }
 
+  registerHorse(id: number) {
+    this.authService.courseRegistrationId.next(id);
+    this._route.navigate(['horseregistration']);
+  }
+
   goToEditCourse(id: number) {
     console.log("Edit course id : " + id);
     this._route.navigate(['/editcourse/', id]);

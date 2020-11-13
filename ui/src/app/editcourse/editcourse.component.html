@@ -28,6 +28,24 @@
 
       <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary" (click)="goBack()">Back to the list</button>&nbsp;&nbsp;
+
+      <br /><br />
+
+      <h3>Horses registered to the course</h3>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <!--<th>Id</th>-->
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let horsename of _horsesnameStringList">
+            <td>{{horsename}}</td>
+          </tr>
+        </tbody>
+      </table>
     </form>
   </div>
 

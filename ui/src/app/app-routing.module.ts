@@ -20,6 +20,7 @@ import { InstructorlistComponent } from './instructorlist/instructorlist.compone
 import { EditcourseComponent } from './editcourse/editcourse.component';
 import { HorselistComponent } from './horselist/horselist.component';
 import { EdithorseComponent } from './edithorse/edithorse.component';
+import { HorseregistrationComponent } from './horseregistration/horseregistration.component';
 
 const routes: Routes = [
   //Basic
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'horselist', component: HorselistComponent },
   { path: 'edithorse', component: EdithorseComponent },
   { path: 'edithorse/:id', component: EdithorseComponent },
+  { path: 'horseregistration', component: HorseregistrationComponent },
 
   //Product
   { path: 'addproduct', component: AddproductComponent },

@@ -37,6 +37,7 @@ import { EditcourseComponent } from './editcourse/editcourse.component';
 import { HorseComponent } from './horse/horse.component';
 import { HorselistComponent } from './horselist/horselist.component';
 import { EdithorseComponent } from './edithorse/edithorse.component';
+import { HorseregistrationComponent } from './horseregistration/horseregistration.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { EdithorseComponent } from './edithorse/edithorse.component';
     HorseComponent,
     HorselistComponent,
     EdithorseComponent,
+    HorseregistrationComponent,
   ],
   imports: [
     BrowserModule,
