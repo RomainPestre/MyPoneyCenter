@@ -18,17 +18,4 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  generateSessionToken() {
-    var token = this.authService.generateSessionToken();
-    return token;
-  }
-
-  dateNow() {
-    var today = new Date();
-    var now = "";
-    now = formatDate(today, 'dd/MM/yyyy HH:mm:ss', 'en-US');
-
-    console.log(now);
-  }
 }
