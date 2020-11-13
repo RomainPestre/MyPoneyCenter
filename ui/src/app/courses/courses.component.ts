@@ -22,8 +22,6 @@ export class CoursesComponent implements OnInit {
   isAdmin: boolean;
   isSuper: boolean;
 
-  test = "Un test";
-
   //Le cours a register
   courseId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
@@ -70,12 +68,6 @@ export class CoursesComponent implements OnInit {
     return intList;
   }
 
-  fn(user: UserComponent) {
-    var str = "L'utilisateur connecté est : ";
-    str = str.concat(user.firstname, " ", user.name);
-    return str;
-  }
-
   addCourseformsubmit() {
     //Format date : yyyy-mm-dd
     //Format time : hh:mm
@@ -94,5 +86,21 @@ export class CoursesComponent implements OnInit {
   register(id: number) {
     this.authService.courseRegistrationId.next(id);
     this._route.navigate(['courseregistration']);
+  }
+
+  goToEditCourse(id: number) {
+    console.log("Edit course id : " + id);
+    this._route.navigate(['/editcourse/', id]);
+  }
+
+  deleteCourse(id: number) {
+    this._service.deleteCourseByIdFromRemote(id).subscribe(
+      data => {
+        this._route.navigate(['/home']);
+      },
+      error => {
+        this._route.navigate(['/home']);
+      }
+    )
   }
 }

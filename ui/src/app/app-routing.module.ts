@@ -17,6 +17,7 @@ import { CourseregistrationComponent } from './courseregistration/courseregistra
 import { EditadminComponent } from './editadmin/editadmin.component';
 import { AddadminComponent } from './addadmin/addadmin.component';
 import { InstructorlistComponent } from './instructorlist/instructorlist.component';
+import { EditcourseComponent } from './editcourse/editcourse.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,6 +35,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'edituser', component: EdituserComponent },
   { path: 'edituser/:id', component: EdituserComponent },
+  { path: 'editcourse', component: EditcourseComponent },
+  { path: 'editcourse/:id', component: EditcourseComponent },
   { path: 'editadmin', component: EditadminComponent },
   { path: 'editadmin/:id', component: EditadminComponent },
   { path: 'adminpanel', component: AdminComponent },

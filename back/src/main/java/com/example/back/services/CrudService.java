@@ -262,4 +262,17 @@ public class CrudService {
 		return courseRepo.findById(id);
 	}
 	
+	public String deleteCourseById(int id) {
+		String result;
+		try {
+			courseRepo.deleteById(id);
+			result = "Course succesfully deleted.";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			result = "ERROR : id is null.";
+		}
+		return result;
+	}
+	
 }

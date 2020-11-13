@@ -41,11 +41,9 @@ export class UserlistComponent implements OnInit {
   deleteUser(id: number) {
     this._service.deleteUserByIdFromRemote(id).subscribe(
       data => {
-        console.debug("Deleted succesfully");
         this._route.navigate(['/adminpanel']);
       },
       error => {
-        console.log("Exception occured");
         this._route.navigate(['/adminpanel']);
       }
     )

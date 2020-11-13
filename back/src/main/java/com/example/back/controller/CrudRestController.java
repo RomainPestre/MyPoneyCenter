@@ -292,4 +292,10 @@ public class CrudRestController {
 		return service.fetchCourseById(id).get();
 	}
 	
+	@DeleteMapping("/deletecoursebyid/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
+	public String DeleteCourseById(@PathVariable int id){
+		return service.deleteCourseById(id);
+	}
+	
 }

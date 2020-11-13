@@ -93,4 +93,7 @@ export class NgserviceService {
     return this._http.delete<any>("http://localhost:8080/deleteuserbyid/" + id);
   }
 
+  deleteCourseByIdFromRemote(id: number): Observable<any> {
+    return this._http.delete<any>("http://localhost:8080/deletecoursebyid/" + id);
+  }
 }

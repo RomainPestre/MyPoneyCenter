@@ -65,7 +65,10 @@
             <td>
               <button type="button" class="btn btn-success" (click)="register(course.id)">Register</button>&nbsp;&nbsp;
             </td>
-            <td *ngIf="isInstructor"></td>
+            <td *ngIf="isInstructor">
+              <button type="button" class="btn btn-primary" (click)="goToEditCourse(course.id)">Edit</button>&nbsp;&nbsp;
+              <button type="button" class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</button>&nbsp;&nbsp;
+            </td>
           </tr>
         </tbody>
       </table>
