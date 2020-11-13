@@ -18,6 +18,7 @@ export class CourseregistrationComponent implements OnInit {
   isRegistered: boolean;
 
   course: CourseComponent;
+  msg: string;
 
   _usersidIntList: number[];
   _coursesidIntList: number[];
@@ -47,27 +48,32 @@ export class CourseregistrationComponent implements OnInit {
         },
         error => console.log("4. error")
       )
-      /*
-      if (this._coursesidIntList.includes(this.courseId) == true || this._usersidIntList.includes(this.connectedUser.id) == true) {
-        this.isRegistered = true;
-      } else {
-        this.isRegistered = false;
-      }*/
     } else {
       this.ngOnInit();
     }
   }
 
-  register(id: number) {
+  canRegister(course: CourseComponent) {
+    if (this.dispoCheck(course) == true) {
+      this.register(course);
+    } else {
+      this.msg = "This course is already full."
+    }
+  }
+
+  register(course: CourseComponent) {
     //Ajouter l'id du cours dans la bdd du cavalier
     if (this.connectedUser.courses == null) {
-      this.connectedUser.courses = id.toString();
+      this.connectedUser.courses = course.id.toString();
+      this.connectedUser.courses_date = course.date.concat(' ', course.time);
       console.log("1. Inscription à un premier cours : " + this.connectedUser.courses);
     } else {
-      if (this._coursesidIntList.includes(id) == false) {
-        this.connectedUser.courses = this.connectedUser.courses.concat(",", id.toString());
+      if (this._coursesidIntList.includes(course.id) == false) {
+        this.connectedUser.courses = this.connectedUser.courses.concat(",", course.id.toString());
+        this.connectedUser.courses_date = this.connectedUser.courses_date.concat(", ", course.date, ' ', course.time);
         console.log("1. Inscription à un nouveau cours : " + this.connectedUser.courses);
       } else {
+        this.msg = "You are already registered to this course.";
         console.log("User is already registered")
       }
     }
@@ -85,15 +91,15 @@ export class CourseregistrationComponent implements OnInit {
 
 
 
-
-
     //Ajouter l'id du cavalier dans la bdd du cours       DANS LA CONFIRMATION
     if (this.course.users_id == null) {
       this.course.users_id = this.connectedUser.id.toString();
+      this.course.users_name = this.connectedUser.firstname.concat(' ', this.connectedUser.name);
       console.log("5. Inscription d'un premier cavalier : " + this.course.users_id)
     } else {
       if (this._usersidIntList.includes(this.connectedUser.id) == false) {
         this.course.users_id = this.course.users_id.concat(",", this.connectedUser.id.toString());
+        this.course.users_name = this.course.users_name.concat(", ", this.connectedUser.firstname, this.connectedUser.name);
         console.log("5. Inscription d'un nouveau cavalier : " + this.course.users_id)
       } else {
         console.log("User is already registered")
@@ -114,6 +120,22 @@ export class CourseregistrationComponent implements OnInit {
 
   goToCourses() {
     this._route.navigate(['courses']);
+  }
+
+  dispoCheck(course: CourseComponent) {
+    var isDispo = false;
+    var usersId = null;
+    usersId = this.convertStringToIntList(course.users_id);
+
+    if (usersId == null) {
+      isDispo = true;
+    } else {
+      if (usersId.length < course.size) {
+        isDispo = true;
+      }
+    }
+
+    return isDispo;
   }
 
   convertStringToIntList(string: string) {

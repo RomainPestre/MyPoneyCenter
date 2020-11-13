@@ -26,6 +26,16 @@
       <br /><br />
     </div>
 
+    <div *ngIf="isUserLoggedIn">
+      <h2>My courses</h2>
+      <br />
+      <p>{{connectedUser.courses_date}}</p>
+    </div>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+
     <div>
       <h2>List of courses</h2>
 
@@ -49,8 +59,8 @@
             <td>{{course.date}}</td>
             <td>{{course.time}}</td>
             <td>{{course.size}}</td>
-            <td>{{course.users_id}}</td>
-            <td>{{course.horses_id}}</td>
+            <td>{{course.users_name}}</td>
+            <td>{{course.horses_name}}</td>
             <td>{{course.description}}</td>
             <td>
               <button type="button" class="btn btn-success" (click)="register(course.id)">Register</button>&nbsp;&nbsp;

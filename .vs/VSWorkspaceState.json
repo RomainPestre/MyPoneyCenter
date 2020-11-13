@@ -4,13 +4,11 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\app",
-    "\\ui\\src\\app\\adduser",
+    "\\ui\\src\\app\\course",
+    "\\ui\\src\\app\\courseregistration",
     "\\ui\\src\\app\\courses",
-    "\\ui\\src\\app\\home",
-    "\\ui\\src\\app\\login",
-    "\\ui\\src\\app\\productlist",
-    "\\ui\\src\\app\\viewproduct"
+    "\\ui\\src\\app\\userlist"
   ],
-  "SelectedNode": "\\ui\\src\\app\\courses\\courses.component.ts",
+  "SelectedNode": "\\ui\\src\\app\\userlist\\userlist.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }

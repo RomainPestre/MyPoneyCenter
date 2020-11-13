@@ -22,6 +22,8 @@ export class CoursesComponent implements OnInit {
   isAdmin: boolean;
   isSuper: boolean;
 
+  test = "Un test";
+
   //Le cours a register
   courseId: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
@@ -51,6 +53,27 @@ export class CoursesComponent implements OnInit {
       },
       error => console.log("Exception occured")
     )
+  }
+
+  convertStringToIntList(string: string) {
+    var intList = new Array();
+    var stringList;
+
+    if (string == null) {
+      return null;
+    } else {
+      stringList = string.split(',');
+      stringList.forEach(element => {
+        intList.push(parseInt(element, 10));
+      })
+    }
+    return intList;
+  }
+
+  fn(user: UserComponent) {
+    var str = "L'utilisateur connecté est : ";
+    str = str.concat(user.firstname, " ", user.name);
+    return str;
   }
 
   addCourseformsubmit() {

@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   session: string;
   expiration: string;
   courses: string;
+  courses_date: string;
 
   ngOnInit(): void {
   }

@@ -20,12 +20,13 @@ public class User {
 	public String session;
 	public String expiration;
 	public String courses;
+	public String courses_date;
 	
 	public User() {
 		
 	}
 	
-	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session, String expiration, String courses) {
+	public User(int id, String email, String password, String name, String firstname, String phone, String license, int privileges, String session, String expiration, String courses, String courses_date) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -38,6 +39,7 @@ public class User {
 		this.session = session;
 		this.expiration = expiration;
 		this.courses = courses;
+		this.courses_date = courses_date;
 	}
 	
 	public int getId() {
@@ -111,6 +113,14 @@ public class User {
 
 	public void setCourses(String courses) {
 		this.courses = courses;
+	}
+
+	public String getCourses_date() {
+		return courses_date;
+	}
+
+	public void setCourses_date(String courses_date) {
+		this.courses_date = courses_date;
 	}
 
 }

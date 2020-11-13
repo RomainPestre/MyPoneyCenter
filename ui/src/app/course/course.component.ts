@@ -12,7 +12,9 @@ export class CourseComponent implements OnInit {
   time: string;
   size: number;
   users_id: string;
+  users_name: string;
   horses_id: string;
+  horses_name: string;
   description: string;
 
   constructor() { }

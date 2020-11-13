@@ -164,7 +164,8 @@ public class CrudService {
 			int privileges,
 			String session,
 			String expiration,
-			String courses) {
+			String courses,
+			String courses_date) {
 		Optional<User> myUser = userRepo.findById(id);
 		User user = myUser.get();
 		user.id = id;
@@ -177,6 +178,7 @@ public class CrudService {
 		user.session = session;
 		user.expiration = expiration;
 		user.courses = courses;
+		user.courses_date = courses_date;
 		userRepo.save(user);
 	}
 	
@@ -238,17 +240,21 @@ public class CrudService {
 			String time,
 			int size,
 			String users_id,
+			String users_name,
 			String horses_id,
+			String horses_name,
 			String description) {
 		Optional<Course> myCourse = courseRepo.findById(id);
 		Course course = myCourse.get();
 		course.date = date;
 		course.description = description;
 		course.horses_id = horses_id;
+		course.horses_name = horses_name;
 		course.id = id;
 		course.size = size;
 		course.time = time;
 		course.users_id = users_id;
+		course.users_name = users_name;
 		courseRepo.save(course);
 	}
 	

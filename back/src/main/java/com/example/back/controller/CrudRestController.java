@@ -181,7 +181,8 @@ public class CrudRestController {
 				u.privileges,
 				u.session,
 				u.expiration,
-				u.courses
+				u.courses,
+				u.courses_date
 		);
 		return u;
 	}
@@ -277,7 +278,9 @@ public class CrudRestController {
 				c.time,
 				c.size,
 				c.users_id,
+				c.users_name,
 				c.horses_id,
+				c.horses_name,
 				c.description
 		);
 		return c;

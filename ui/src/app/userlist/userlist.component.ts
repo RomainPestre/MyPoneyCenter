@@ -33,23 +33,21 @@ export class UserlistComponent implements OnInit {
     this._route.navigate(['/adduser']);
   }
 
-  goToEditProduct(id: number) {
-    console.log("Edit producti id : " + id);
-    this._route.navigate(['/editproduct/', id]);
+  goToEditUser(id: number) {
+    console.log("Edit user id : " + id);
+    this._route.navigate(['/edituser/', id]);
   }
 
-  goToViewProduct(id: number) {
-    console.log("View producti id : " + id);
-    this._route.navigate(['/viewuser', id]);
-  }
-
-  deleteProduct(id: number) {
-    this._service.deleteProductByIdFromRemote(id).subscribe(
+  deleteUser(id: number) {
+    this._service.deleteUserByIdFromRemote(id).subscribe(
       data => {
         console.debug("Deleted succesfully");
-        this._route.navigate(['/productlist']);
+        this._route.navigate(['/adminpanel']);
       },
-      error => console.log("Exception occured")
+      error => {
+        console.log("Exception occured");
+        this._route.navigate(['/adminpanel']);
+      }
     )
   }
 

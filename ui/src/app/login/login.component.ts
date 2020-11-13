@@ -3,7 +3,6 @@ import { NgserviceService } from '../ngservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserComponent } from '../user/user.component';
 import { AuthService } from '../services/auth.service';
-import { sha256 } from 'js-sha256';
 
 @Component({
   selector: 'app-login',

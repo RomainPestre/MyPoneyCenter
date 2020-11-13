@@ -29,7 +29,7 @@ export class AdduserComponent implements OnInit {
       data => {
         console.log("data added succesfully");
         //console.log(this.user.password);
-        this._route.navigate(['userlist']);
+        this._route.navigate(['home']);
       },
       error => console.log("error")
     )
