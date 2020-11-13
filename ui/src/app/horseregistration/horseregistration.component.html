@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngIf="isInstructor">
+    <h2>List of horses</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horse of _horselist">
+          <td>{{horse.name}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="addHorse(horse)">Add to the course</button>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -4,11 +4,8 @@
     "\\ui",
     "\\ui\\src",
     "\\ui\\src\\app",
-    "\\ui\\src\\app\\login",
-    "\\ui\\src\\app\\navbar",
-    "\\ui\\src\\app\\services",
-    "\\ui\\src\\app\\signup"
+    "\\ui\\src\\app\\home"
   ],
-  "SelectedNode": "\\ui\\src\\app\\services\\links.service.ts",
+  "SelectedNode": "\\ui\\src\\app\\home\\home.component.html",
   "PreviewInSolutionExplorer": false
 }

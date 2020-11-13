@@ -4,7 +4,7 @@
   <form #adduserform="ngForm" (ngSubmit)="updateProductformsubmit()">
     <div class="form-group">
       <label for="id">id:</label>
-      <input type="text" class="form-control" required [(ngModel)]="product.id" name="id" disabled/>
+      <input type="text" class="form-control" required [(ngModel)]="product.id" name="id" disabled />
     </div>
     <div class="form-group">
       <label for="id">name:</label>
@@ -19,7 +19,27 @@
       <input type="text" class="form-control" required [(ngModel)]="product.desc" name="description" />
     </div>
 
-    <button type="submit" class="btn-success">Update</button>
-    <button type="button" class="btn-primary" (click)="gotolist()">BACK</button>
+    <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="gotolist()">BACK</button>
+  </form>
+
+  <br /><br />
+
+  <form #adduserform="ngForm" (ngSubmit)="updateTestformsubmit()">
+    <div class="form-group">
+      <label for="id">name:</label>
+      <input type="text" class="form-control" required [(ngModel)]="product.name" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="id">price:</label>
+      <input type="text" class="form-control" required [(ngModel)]="product.price" name="price" />
+    </div>
+    <div class="form-group">
+      <label for="id">description:</label>
+      <input type="text" class="form-control" required [(ngModel)]="product.desc" name="description" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="gotolist()">BACK</button>
   </form>
 </div>

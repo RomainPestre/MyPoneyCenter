@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule  } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +24,20 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
+import { EdituserComponent } from './edituser/edituser.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminlistComponent } from './adminlist/adminlist.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CourseComponent } from './course/course.component';
+import { CourseregistrationComponent } from './courseregistration/courseregistration.component';
+import { EditadminComponent } from './editadmin/editadmin.component';
+import { AddadminComponent } from './addadmin/addadmin.component';
+import { InstructorlistComponent } from './instructorlist/instructorlist.component';
+import { EditcourseComponent } from './editcourse/editcourse.component';
+import { HorseComponent } from './horse/horse.component';
+import { HorselistComponent } from './horselist/horselist.component';
+import { EdithorseComponent } from './edithorse/edithorse.component';
+import { HorseregistrationComponent } from './horseregistration/horseregistration.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +55,31 @@ import { AuthService } from './services/auth.service';
     AdduserComponent,
     LoginComponent,
     HomeComponent,
+    EdituserComponent,
+    AdminComponent,
+    AdminlistComponent,
+    CoursesComponent,
+    CourseComponent,
+    CourseregistrationComponent,
+    EditadminComponent,
+    AddadminComponent,
+    InstructorlistComponent,
+    EditcourseComponent,
+    HorseComponent,
+    HorselistComponent,
+    EdithorseComponent,
+    HorseregistrationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule,
   ],
   providers: [
     AuthService

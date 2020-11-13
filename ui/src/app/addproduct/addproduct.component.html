@@ -19,7 +19,19 @@
       <input type="text" class="form-control" required [(ngModel)]="product.desc" name="description" />
     </div>
 
-    <button type="submit" class="btn-success">Submit</button>
-    <button type="button" class="btn-primary" (click)="gotolist()">BACK</button>
+    <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="gotolist()">BACK</button>
+  </form>
+
+  <br /><br />
+
+  <form #adduserform="ngForm" (ngSubmit)="addTestformsubmit()">
+    <div class="form-group">
+      <label for="id">name:</label>
+      <input type="text" class="form-control" required [(ngModel)]="product.name" name="name" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="gotolist()">BACK</button>
   </form>
 </div>

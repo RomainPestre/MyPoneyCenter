@@ -1,0 +1,78 @@
+<div class="container">
+
+  <div *ngIf="isUserLoggedIn">
+    <div *ngIf="isInstructor">
+      <h2>Add new course</h2>
+
+      <form #adduserform="ngForm" (ngSubmit)="addCourseformsubmit()">
+        <div class="form-group">
+          <label for="id">Date</label>
+          <input type="date" class="form-control" required [(ngModel)]="course.date" name="date" />
+        </div>
+        <div class="form-group">
+          <label for="id">Time</label>
+          <input type="time" class="form-control" required [(ngModel)]="course.time" name="time" />
+        </div>
+        <div class="form-group">
+          <label for="id">Size</label>
+          <input type="number" class="form-control" required [(ngModel)]="course.size" name="size" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Add course</button>
+      </form>
+
+      <br /><br />
+      <hr />
+      <br /><br />
+    </div>
+
+    <div *ngIf="isUserLoggedIn">
+      <h2>My courses</h2>
+      <br />
+      <p>{{connectedUser.courses_date}}</p>
+    </div>
+
+    <br /><br />
+    <hr />
+    <br /><br />
+
+    <div>
+      <h2>List of courses</h2>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th *ngIf="isInstructor">Id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Size</th>
+            <th>Users</th>
+            <th>Horses</th>
+            <th>Description</th>
+            <th>Register</th>
+            <th *ngIf="isInstructor">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of _courselist">
+            <td *ngIf="isInstructor">{{course.id}}</td>
+            <td>{{course.date}}</td>
+            <td>{{course.time}}</td>
+            <td>{{course.size}}</td>
+            <td>{{course.users_name}}</td>
+            <td>{{course.horses_name}}</td>
+            <td>{{course.description}}</td>
+            <td>
+              <button type="button" class="btn btn-success" (click)="register(course.id)">Register</button>&nbsp;&nbsp;
+            </td>
+            <td *ngIf="isInstructor">
+              <button type="button" class="btn btn-primary" (click)="registerHorse(course.id)">Add horse</button>&nbsp;&nbsp;
+              <button type="button" class="btn btn-primary" (click)="goToEditCourse(course.id)">Edit</button>&nbsp;&nbsp;
+              <button type="button" class="btn btn-danger" (click)="deleteCourse(course.id)">Delete</button>&nbsp;&nbsp;
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="container">
+  <div *ngIf="isAdmin">
+    <h2>Edit user</h2>
+
+    <br /><br />
+
+    <form #adduserform="ngForm" (ngSubmit)="updateUserformsubmit()">
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="number" class="form-control" required [(ngModel)]="user.id" name="id" disabled />
+      </div>
+      <div class="form-group">
+        <label for="id">Firstname</label>
+        <input type="text" class="form-control" required [(ngModel)]="user.firstname" name="firstname" />
+      </div>
+      <div class="form-group">
+        <label for="id">Name</label>
+        <input type="text" class="form-control" required [(ngModel)]="user.name" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="id">Email</label>
+        <input type="email" class="form-control" required [(ngModel)]="user.email" name="email" />
+      </div>
+      <div class="form-group">
+        <label for="id">Phone</label>
+        <input type="tel" class="form-control" required [(ngModel)]="user.phone" name="phone" />
+      </div>
+      <div class="form-group">
+        <label for="id">License</label>
+        <input type="text" class="form-control" required [(ngModel)]="user.license" name="license" />
+      </div>
+      <div class="form-group">
+        <label for="id">Privileges</label>
+        <input type="number" class="form-control" required [(ngModel)]="user.privileges" name="privileges" />
+      </div>
+      <div class="form-group">
+        <label for="id">Password (Fill in only to change the password.)</label>
+        <input type="text" class="form-control" required [(ngModel)]="pwdfield" name="password" />
+      </div>
+
+      <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="goBack()">Back to the list</button>&nbsp;&nbsp;
+    </form>
+  </div>
+
+  <div *ngIf="!isAdmin">
+    <p>You don't have access to this page.</p>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <div *ngIf="isInstructor">
+    <h2>Edit course</h2>
+
+    <br /><br />
+
+    <form #adduserform="ngForm" (ngSubmit)="updateCourseformsubmit()">
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="number" class="form-control" required [(ngModel)]="course.id" name="id" disabled />
+      </div>
+      <div class="form-group">
+        <label for="id">Date</label>
+        <input type="date" class="form-control" required [(ngModel)]="course.date" name="date" />
+      </div>
+      <div class="form-group">
+        <label for="id">Time</label>
+        <input type="time" class="form-control" required [(ngModel)]="course.time" name="time" />
+      </div>
+      <div class="form-group">
+        <label for="id">Size</label>
+        <input type="number" class="form-control" required [(ngModel)]="course.size" name="size" />
+      </div>
+      <div class="form-group">
+        <label for="id">Description</label>
+        <input type="text" class="form-control" required [(ngModel)]="course.description" name="description" />
+      </div>
+
+      <button type="submit" class="btn btn-success">Update</button>&nbsp;&nbsp;
+      <button type="button" class="btn btn-primary" (click)="goBack()">Back to the list</button>&nbsp;&nbsp;
+
+      <br /><br />
+
+      <h3>Horses registered to the course</h3>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <!--<th>Id</th>-->
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let horsename of _horsesnameStringList">
+            <td>{{horsename}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+  <div *ngIf="!isInstructor">
+    <p>You don't have access to this page.</p>
+  </div>
+</div>

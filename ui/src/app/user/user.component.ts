@@ -17,6 +17,10 @@ export class UserComponent implements OnInit {
   phone: string;
   license: number;
   privileges: number;
+  session: string;
+  expiration: string;
+  courses: string;
+  courses_date: string;
 
   ngOnInit(): void {
   }

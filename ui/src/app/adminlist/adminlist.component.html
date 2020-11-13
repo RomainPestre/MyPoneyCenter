@@ -1,0 +1,45 @@
+<div class="container">
+  <div *ngIf="isAdmin">
+    <h2>Admin list</h2>
+
+    <br /><br />
+
+    <button type="button" class="btn btn-success" (click)="addAdmin()">Add new admin</button>&nbsp;&nbsp;
+
+    <br /><br />
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Firstname</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone number</th>
+          <th>License</th>
+          <th>Privileges</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of _adminlist">
+          <td>{{user.id}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.license}}</td>
+          <td>{{user.privileges}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="editAdmin(user.id)">Edit</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" (click)="deleteAdmin(user.id)">Delete</button>&nbsp;&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!isAdmin">
+    <p>You don't have access to this page.</p>
+  </div>
+</div>

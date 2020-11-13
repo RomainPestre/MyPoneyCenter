@@ -1,15 +1,18 @@
 package com.example.back.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Product {
 	@Id
-	private int id;
-	private String name;
-	private String desc;
-	private int price;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	public int id;
+	public String name;
+	public String desc;
+	public int price;
 	
 	public Product() {
 	}
